@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
-
+import { login, logout } from '../../utils';
 import parasLogo from '../../assets/img/paraslogo.png';
 
 
@@ -19,7 +19,29 @@ export default function Footer() {
   return (
     <div>        <div className="m-1 mt-5">
     <div className="row justify-content-center">
-        <ul className="d-flex flex-row justify-content-center social">
+    <ul className="navbar-nav">
+                        <li className="nav-item nav-link mr-4 m-b-3">
+                            <a href=''>
+                            About
+                            </a>
+                        </li>
+                        <li className="nav-item nav-link mr-4">
+                            <a className='mt-4' href=''>
+                           How to Play
+                            </a>
+                        </li>
+                        <li className="nav-item nav-link mr-4">
+                            <a className='' href=''>
+                           FAQ
+                            </a>
+                        </li>
+                        <li className="nav-item nav-link">
+                            <button className='btn wallet-btn' onClick={login}>Connect Wallet</button>
+                        </li>
+                    </ul>
+    </div>
+
+    <div className='row justify-content-center'>        <ul className="d-flex flex-row justify-content-center social">
             <li className="nav-item nav-link">
                 <a href='https://paras.id'>
                     <img src={parasLogo} alt='paras' style={{ width: 25 }} />
@@ -35,10 +57,7 @@ export default function Footer() {
                 </a>
             </li>
             )}
-        </ul>  
-    </div>
-
-    <div className='row justify-content-center'><span className='bottom-line'></span></div>
+        </ul>  </div>
 </div></div>
   )
 }
