@@ -8,6 +8,8 @@ import CoinLogoTails from "./assets/svg/tails-logo.png";
 import CoinLogoHeads from "./assets/svg/heads-logo.png";
 import RealTimeIcon from "./assets/img/realtime.png";
 import getConfig from "./config";
+
+import axios from "axios";
 const { networkId } = getConfig(process.env.NODE_ENV || "development");
 
 export default function App() {

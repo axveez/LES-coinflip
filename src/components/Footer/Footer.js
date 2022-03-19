@@ -5,6 +5,8 @@ import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { login, logout } from "../../utils";
 import parasLogo from "../../assets/img/paras.png";
 
+
+
 export default function Footer() {
   const icons = [
     { faIcon: faTwitter, href: "https://twitter.com/TheDonsProject" },
