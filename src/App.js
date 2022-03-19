@@ -48,11 +48,15 @@ export default function App() {
   // }
 
 
-
+  const MAX = 5;
 
   const [active, setActive] = useState(false);
   const [rangeval, setRangeval] = useState(null);
+  const [value, setValue] = useState(0);
 
+  const getBackgroundSize = () => {
+    return { backgroundSize: `${(value * 100) / MAX}% 100%` };
+  };
 
   const handleChangeActive = () => {
     console.log()
@@ -82,7 +86,17 @@ export default function App() {
             <button class = "button-not-clicked"  onClick={() => handleChangeActive()}>Tails</button>
             </div>
             <div className='row justify-content-center mt-4'>
-           <label class = "label-item">0.1 Ⓝ</label> <input   type="range"  min="1" max="5" value="2" class="slider" id="myRange"></input><label class = "label-item" > 0.2 Ⓝ!</label>
+           <label class = "label-item">0.1 Ⓝ</label>
+           <input
+        type="range"
+        min="0"
+        max={MAX}
+        onChange={(e) => setValue(e.target.value)}
+        class="slider"
+        value={value}
+      />
+           
+           <label class = "label-item" > 0.2 Ⓝ!</label>
             </div>
             <div className='row justify-content-center mt-4'>
             <button class = "button-flip">Flip  0.2 Ⓝ!</button>
