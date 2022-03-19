@@ -3,6 +3,7 @@ import React, {useState}from 'react'
 import { login, logout } from './utils'
 import './global.css'
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import CoinLogoTails from './assets/svg/tails-logo.png';
 import CoinLogoHeads from './assets/svg/heads-logo.png';
 import getConfig from './config'
@@ -107,9 +108,7 @@ export default function App() {
                </div>
             </div>
         </div>
-  
-          
-     
+     <Footer /> 
       </div>
 
     </>
