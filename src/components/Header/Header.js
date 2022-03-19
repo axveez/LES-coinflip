@@ -11,7 +11,7 @@ import Logo from '../../assets/img/kangaroo-logo.png';
 function Header() {
   return (
     <div className="m-logo header-container">
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light nav-bar">
         <div className="container-fluid">
             <a to='/' className="navbar-brand text-center">
                <img src = {Logo}/>
@@ -19,7 +19,7 @@ function Header() {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="collapsibleNavbar">
+            <div className="collapse navbar-collapse nav-bar" id="collapsibleNavbar" >
                 <div className="navbar-nav ms-auto">
                     <ul className="navbar-nav">
                         <li className="nav-item nav-link mr-4 m-b-3">
