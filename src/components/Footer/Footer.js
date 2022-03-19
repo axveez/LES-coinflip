@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { login, logout } from "../../utils";
-import parasLogo from "../../assets/img/paraslogo.png";
+import parasLogo from "../../assets/img/paras.png";
 
 export default function Footer() {
   const icons = [
@@ -42,11 +42,11 @@ export default function Footer() {
               </a>
             </li>
             {icons.map((icon, i) => (
-              <li className="nav-item nav-link" key={i}>
+              <li className="nav-item nav-link " key={i}>
                 <a href={icon.href}>
                   <FontAwesomeIcon
                     icon={icon.faIcon}
-                    style={{ fontSize: 30, color: "black", paddingTop: 10 }}
+                    style={{ fontSize: 30, color: "white", paddingTop: 10 }}
                   />
                 </a>
               </li>
