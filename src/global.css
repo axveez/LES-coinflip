@@ -122,7 +122,26 @@ padding-right:13px;
 }
 
 @media screen and (max-width: 768px) {
+  .header{
+    display:none;
+  }
 
+  .button-clear {
+    width: 165px !important;
+  }
+.button-not-clicked {
+  width: 165px !important;
+}
+  .slider {
+    height:12px !important;
+    width: 212px !important;
+  }
+
+
+.label-item{
+  font-size: 18px;
+}
+    
 
 body{
 
@@ -264,7 +283,7 @@ button{ cursor:pointer;}
   box-sizing: border-box;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
-  width: 226px !important;
+  width: 226px ;
   margin: 10px;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -287,14 +306,15 @@ button{ cursor:pointer;}
   padding-top: 14px;
   padding-bottom: 14px;
   color: white;
-width: 226px !important;
+width: 226px ;
 
 }
 
 
 
 .button-flip {
-  min-width: 472px !important;
+  min-width: 338px !important;
+  max-width: 472px !important;
   color: white;
   background: #4a3959;
   border: 1.5px solid rgba(255, 255, 255, 0.55);
@@ -315,14 +335,14 @@ width: 226px !important;
 .slider {
   background: #4a3959;
   border-radius: 24px;
-  width: 280px !important;
+  width: 280px;
 }
 
 input[type="range"] {
   height: 30px;
   -webkit-appearance: none;
   margin: 10px 0;
-  width: 100%;
+
 }
 input[type="range"]:focus {
   outline: none;
@@ -424,6 +444,3 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 
-.recent-flips-card{
-
-}

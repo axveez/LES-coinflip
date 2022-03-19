@@ -10,7 +10,7 @@ import Logo from '../../assets/img/kangaroo-logo.png';
 
 function Header() {
   return (
-    <div className="m-logo header-container">
+    <div className="m-logo header-container" class = "header">
     <nav className="navbar navbar-expand-lg navbar-light nav-bar">
         <div className="container-fluid">
             <a to='/' className="navbar-brand text-center">
