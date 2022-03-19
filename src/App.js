@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import CoinLogoTails from './assets/svg/tails-logo.png';
 import CoinLogoHeads from './assets/svg/heads-logo.png';
+import RealTimeIcon from './assets/img/realtime.png';
 import getConfig from './config'
 const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
@@ -105,6 +106,11 @@ export default function App() {
             <div className='row justify-content-center mt-5'>
                <div className = "recent-flips-card">
                 <label class = "label-item">Recent Flips</label>
+                <div className='row justify-content-center mt-4'>
+                <img src = {RealTimeIcon}/> 
+                <p class = "realtime-info">swiftyyy.near flipped <span class = "near-amount">0.5 Ⓝ</span> and lost</p>
+                <span class = "realtime-info" >1m</span>
+                </div>
                </div>
             </div>
         </div>
