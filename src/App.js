@@ -1,15 +1,16 @@
 import 'regenerator-runtime/runtime'
-import React from 'react'
+import React, {useState}from 'react'
 import { login, logout } from './utils'
 import './global.css'
 import Header from './components/Header/Header'
-import CoinLogo from './assets/svg/tails-logo.png';
+import CoinLogoTails from './assets/svg/tails-logo.png';
+import CoinLogoHeads from './assets/svg/heads-logo.png';
 import getConfig from './config'
 const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
 export default function App() {
   // use React Hooks to store greeting in component state
-  const [greeting, set_greeting] = React.useState()
+
 
   // when the user has not yet interacted with the form, disable the button
   const [buttonDisabled, setButtonDisabled] = React.useState(true)
@@ -46,6 +47,20 @@ export default function App() {
   //   )
   // }
 
+
+
+
+  const [active, setActive] = useState(false);
+  const [rangeval, setRangeval] = useState(null);
+
+
+  const handleChangeActive = () => {
+    console.log()
+    setActive((previousStar) => {
+      return !previousStar;
+    });
+  };
+
   return (
     // use React Fragment, <>, to avoid wrapping elements in unnecessary divs
     <>
@@ -53,20 +68,27 @@ export default function App() {
         <Header />
         <div className='container'>
             <div className='row justify-content-center'>
-             //   <img src={CoinLogo} alt='Coin' className='coin' />
+
+            {active ? (
+          <img src={CoinLogoTails} alt='Tails' className='coin'     />
+        ) : (
+          <img src={CoinLogoHeads} alt='Heads' className='coin'     />)
+         
+               
+}
             </div>
             <div className='row justify-content-center'>
-            <button class = "button-clear">Heads</button>
-            <button class = "button-not-clicked">Tails</button>
+            <button class = "button-clear"  onClick={() => handleChangeActive()}>Heads</button>
+            <button class = "button-not-clicked"  onClick={() => handleChangeActive()}>Tails</button>
             </div>
             <div className='row justify-content-center mt-4'>
-           <label>1Ⓝ</label> <input   type="range"  min="1" max="5" value="2" class="slider" id="myRange"></input><label>2Ⓝ!</label>
+           <label class = "label-item">0.1 Ⓝ</label> <input   type="range"  min="1" max="5" value="2" class="slider" id="myRange"></input><label class = "label-item" > 0.2 Ⓝ!</label>
             </div>
             <div className='row justify-content-center mt-4'>
             <button class = "button-flip">Flip  0.2 Ⓝ!</button>
             </div>
             <div className='row justify-content-center mt-5'>
-                <h1 class = "wip-data">Realtime data WIP</h1> asd
+                <h1 class = "wip-data">Realtime data WIP</h1>
             </div>
         </div>
   
