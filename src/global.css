@@ -22,6 +22,10 @@ body
   font-size: 45px;
 }
 
+
+.nav-bar{
+  justify-content:flex-end !important;
+}
 .navbar-brand > .bottom {
   font-size: 15px;
   vertical-align: top;
@@ -64,7 +68,16 @@ input {
   display: inline-block;
   vertical-align: middle;
 }
-
+.label-item{
+  color:white;
+  font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 900;
+font-size: 30px;
+line-height: 46px;
+padding-left:13px;
+padding-right:13px;
+}
 
 
 .title {
@@ -228,6 +241,7 @@ li {
   margin-top: 8px !important;
   text-align: center;
 }
+button{ cursor:pointer;}
 
 .button-clear {
   background: #4a3959;
@@ -247,7 +261,7 @@ li {
 
 .button-not-clicked{
   background: rgba(255, 255, 255, 0.02);
-  
+  cursor:pointer;
   box-sizing: border-box;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   border-radius: 16px;  font-family: 'Titillium Web';
@@ -277,6 +291,7 @@ width: 226px !important;
   font-weight: 900 !important;
   font-size:30px;
   padding-bottom: 18px;
+  
 }
 .nav-item {
   color: white !important;
