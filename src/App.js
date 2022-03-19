@@ -102,7 +102,9 @@ export default function App() {
             <button class = "button-flip">Flip  0.2 Ⓝ!</button>
             </div>
             <div className='row justify-content-center mt-5'>
-                <h1 class = "wip-data">Realtime data WIP</h1>
+               <div className = "recent-flips-card">
+                <label class = "label-item">Recent Flips</label>
+               </div>
             </div>
         </div>
   
