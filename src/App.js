@@ -115,6 +115,54 @@ export default function App() {
                 </p>
                 <span class="realtime-info">1m</span>
               </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
+              <div className="row justify-content-center mt-4">
+                <img class="realtime-image" src={RealTimeIcon} />
+                <p class="realtime-info">
+                  swiftyyy.near flipped <span class="near-amount">0.5 Ⓝ</span>{" "}
+                  and lost
+                </p>
+                <span class="realtime-info">1m</span>
+              </div>
             </div>
           </div>
         </div>
