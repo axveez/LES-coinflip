@@ -279,7 +279,7 @@ width: 226px !important;
 
 
 .button-flip {
-  max-width: 472px !important;
+  min-width: 472px !important;
   color: white;
   background: #4a3959;
   border: 1.5px solid rgba(255, 255, 255, 0.55);
