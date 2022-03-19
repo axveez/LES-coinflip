@@ -77,6 +77,7 @@ font-size: 30px;
 line-height: 46px;
 padding-left:13px;
 padding-right:13px;
+
 }
 
 
@@ -451,4 +452,22 @@ input[type="range"]:focus::-ms-fill-upper {
   font-size: 24px;
   line-height: 37px;
   color: #FFFFFF;
+}
+.realtime-image{
+  width: 36px;
+height: 36px;
+margin-right:22px;
+}
+
+.recent-flips{
+  color:white;
+  font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 900;
+font-size: 30px;
+line-height: 46px;
+padding-left:13px;
+padding-right:13px;
+width: 100%;
+    text-align: center;
 }
