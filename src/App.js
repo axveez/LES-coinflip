@@ -1,6 +1,6 @@
 import "regenerator-runtime/runtime";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import { login, logout } from "./utils";
 import "./global.css";
 import Header from "./components/Header/Header";
@@ -28,24 +28,12 @@ export default function App() {
     }
   }, []);
 
-  const baseURL =
-    "https://indexer.havendao.community/api/coinflip-house.near?api_key=f743dcb217d1d615dd1bf652&limit=7";
   const MAX = 5;
 
   const [active, setActive] = useState(false);
 
   const [rangeval, setRangeval] = useState(null);
   const [value, setValue] = useState(0);
-  const [user, setUser] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch('https://randomuser.me/api/')
-      .then(results => results.json())
-      .then(data => {
-        setUser(data.results[0]);
-        console.log(user, "testing")
-      });
-  }, []); // Pass empty array to only run once on mount.
 
 
   
