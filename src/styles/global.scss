@@ -100,6 +100,14 @@ p {
 .btn {
   width: 226.43px;
 }
+.btn:active {
+  // On click
+  // Navigate to: "homepage";
+  // Animate: Push Right;
+  animation-timing-function: cubic-bezier(0.37, -0.13, 0.5, 1.22);
+  animation-duration: 800ms;
+
+}
 .full-width {
   width: 100%;
 }
@@ -140,6 +148,7 @@ p {
   
   border-radius: 16px;
 }
+
 .rc-slider {
   height: 17px;
 }
