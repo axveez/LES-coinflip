@@ -90,7 +90,7 @@ const Home = () => {
           />
         </Row>
         <Row className = "mt-5 m-auto"style={{display: `${status===FLIP_NONE ? 'block' : 'none'}`}}>
-          <RecentFlips/>
+          <RecentFlips history={ txHistory }/>
         </Row>
         <Footer />
       </div>
