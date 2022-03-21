@@ -16,6 +16,9 @@
   }
   & p {
     margin: 0px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   & > div {
     display: inline-block;
@@ -29,6 +32,7 @@
     }
     & > p:first-child {
       width: 70%;
+      text-align: left;
     }
     & > p:last-child {
       width: 20%;

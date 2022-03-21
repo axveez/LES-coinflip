@@ -22,37 +22,59 @@ const Home = () => {
   const [limit, setLimit] = useState(10);
   const [logo, setLogo] = useState(null);
 
-  useEffect(() => {
+  useEffect(async () => {
     // setStatus(FLIPPING);
-    initContract();
-    loadTxHistory();
-    console.log(1e18);
+    await initContract();
+    await loadTxHistory();
+    console.log('get credit from ' + window.accountId);
+    await window.contract.get_credits({ account_id: window.accountId})
+    .then(res=>{
+      console.log(res)
+      if(res == 0) {
+        deposit();
+      }
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   }, []);
-  useState(() => {
-    console.log(status);
-  }, [status]);
+
+  const deposit = async () => {
+    await window.contract.deposit(
+      {},
+      '300000000000000',
+      '5000000000000000000'
+    )
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
 
   const flip = () => {
-    console.log(window.contract);
-    // let size = (value*1e18).toString();
-    let size = (value).toString();
+
+    let size = (value*1e18).toString();
+    // let size = (value).toString();
+
     console.log(size);
     setStatus(FLIP_GOING);
     window.contract.play({_bet_type: true, bet_size: size})
     .then(res=>{
       console.log(res);
-      setStatus(FLIP_WON);
+      if(res === true)
+        setStatus(FLIP_WON);
+      else setStatus(FLIP_LOST);
     })
     .catch(err => {
-      console.log('lost');
       setStatus(FLIP_LOST);
       console.log(err);
     })
   }
-  const loadTxHistory = () => {
-    axios.get(`${API_URL}?api_key=${API_KEY}&limit=${limit}`)
+  const loadTxHistory = async () => {
+    await axios.get(`${API_URL}?api_key=${API_KEY}&limit=${limit}`)
       .then(res => {
-        console.log(res);
         if(res && res.data && res.data.data && res.data.data.length) {
           setTxHistory(res.data.data);
         }

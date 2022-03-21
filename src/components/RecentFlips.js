@@ -34,7 +34,7 @@ const RecentFlips = (props) => {
             return (
               <Stack direction="horizontal" className="recent_flips_item" gap={2} key={key}>
                 <Image src={RealtimeIcon} />
-                <p>{item.signer_id + ` flipped ` +item.amount + ' Ⓝ and ' + item.result }</p>
+                <p>{item.signer_id + ` flipped ` +item.amount + ' Ⓝ and ' + item.result.toLowerCase() }</p>
                 <p>{ getTime(item.timestamp) }</p>
               </Stack>
             )

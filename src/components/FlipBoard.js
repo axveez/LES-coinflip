@@ -11,6 +11,25 @@ const FlipBoard = (props) => {
 
   const { status, choice, value, setStatus } = props;
 
+  const getText = () => {
+    let head = '';
+    let desc = '';
+    if(status == FLIP_GOING) {
+      head = 'Flipping ' + value + ' Ⓝ';
+      desc = 'You Choose ' + (choice ? 'Heads' : 'Tails');
+    } else if(status === FLIP_WON) {
+      head = 'You Won' + value * 2 + ' Ⓝ';
+      desc = 'Current Streak: ' + 1;
+    } else if(status === FLIP_LOST) {
+      head = 'You Lost ' + value + ' Ⓝ';
+      desc = 'Current Streak: ' + 0;
+    } else {
+      head = '';
+      desc = '';
+    }
+
+    return { head: head, desc: desc }
+  }
   return (
     <Col>
       <Stack className={``}>
@@ -19,8 +38,8 @@ const FlipBoard = (props) => {
           <Image src={HeadsLogo} style={{display: `${status!=FLIP_GOING && choice===true? 'block' : 'none'}`}} className='coin' width={472} />
           <Image src={TailsLogo} style={{display: `${status!=FLIP_GOING && choice===false? 'block' : 'none'}`}} className='coin' width={472} />
         </div>
-        <p className="bold-font">Flipping 0.1 Ⓝ</p>
-        <p className="">You Choose Heads</p>
+        <p className="bold-font">{getText().head}</p>
+        <p className="">{getText().desc}</p>
         <Stack gap={3} className='home_btn_group mt-2 mb-5'>
           <Stack direction="horizontal" gap={2} style={{visibility: `${status === FLIP_DOUBLE ? 'visible' : 'hidden'}`}}>
             <button className="btn-transparent" style={{width: '50%'}}>
