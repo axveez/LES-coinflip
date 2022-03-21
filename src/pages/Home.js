@@ -19,6 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     // setStatus(FLIPPING);
+    console.log(process.env.CONTRACT_NAME);
   }, []);
 
   return (
