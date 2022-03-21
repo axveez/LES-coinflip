@@ -15,8 +15,9 @@ const Header = () => {
           <a href="/#">About</a>
           <a href="/#">How To Play</a>
           <a href="/#">FAQ</a>
-          <button className="bold-font btn-transparent header_connect_btn" onClick={()=>login()}>Connect Wallet</button>
+        
         </Stack>
+        <button className="bold-font btn-transparent header_connect_btn" onClick={()=>login()}>Connect Wallet</button>
       </Stack>      
     </div>
   );

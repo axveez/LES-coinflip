@@ -15,6 +15,17 @@ div.row {
   justify-content: right;
 }
 
+
+
+
+
+@media only screen and (max-width: 756px) {
+  .pull-right {
+display:none;
+  }
+  
+}
+
 html {
   --bg: #efefef;
   --fg: #1e1e1e;
