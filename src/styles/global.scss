@@ -15,6 +15,26 @@ div.row {
   justify-content: right;
 }
 
+
+@media only screen and (max-width: 768px) {
+  .pull-right {
+ display:none;
+  }
+
+  .logo-header{
+    display:none;
+  }
+
+.header-mobile{
+  justify-content: center;
+}
+}
+
+
+
+
+
+
 html {
   --bg: #efefef;
   --fg: #1e1e1e;
@@ -202,7 +222,5 @@ border-radius: 24px;
   .coin {
     width: 100%;
   }
-  .header {
-    display: none;
-  }
+
 }
