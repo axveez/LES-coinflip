@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=C:\Users\Home\Desktop\KangarooCoinFlip\Coinflip\contract\target\wasm32-unknown-unknown\debug\build\typenum-93d24a8c0297b980\out\consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=C:\Users\Home\Desktop\KangarooCoinFlip\Coinflip\contract\target\wasm32-unknown-unknown\debug\build\typenum-93d24a8c0297b980\out\op.rs
