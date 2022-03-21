@@ -45,13 +45,13 @@ const CoinSelect = (props) => {
             setValue(nextValue);
           }}
           min={0}
-          max={5}
+          max={2}
           defaultValue={0.1}
           step={0.01}
           />
         </div>
         <div>
-          <span>5 Ⓝ</span>
+          <span>2 Ⓝ</span>
         </div>
       </Stack>
       <button className="btn full-width btn-dark-bg coin_select_flip_btn bold-font">
