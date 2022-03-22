@@ -13,7 +13,6 @@ const CoinSelect = (props) => {
   const [flipValue, setFlipValue] = useState(0.1);
   const { choice, setChoice, value, setValue, flip } = props;
   useEffect(() => {
-    console.log(choice)
   }, [choice])
 
   return (

@@ -1,3 +1,5 @@
+import nearAPI from "near-api-js";
+
 import React, { useState, useEffect } from 'react';
 import CoinSelect from '../components/CoinSelect';
 import Footer from '../components/Footer';
@@ -22,31 +24,48 @@ const Home = () => {
   const [limit, setLimit] = useState(10);
   const [logo, setLogo] = useState(null);
 
+  const [balance, setBalance] = useState(null);
+
   useEffect(async () => {
     // setStatus(FLIPPING);
     await initContract();
-    await loadTxHistory();
-    console.log('get credit from ' + window.accountId);
-    await window.contract.get_credits({ account_id: window.accountId})
-    .then(res=>{
-      console.log(res)
-      if(res == 0) {
-        deposit();
-      }
+    // await loadTxHistory();
+    
+    let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err=>{
+      console.log(err)
+    });
+    setBalance(newBalance)
+
+  }, []);
+
+  const deposit = async (nearAmount) => {
+    await window.contract.deposit(
+      {},
+      '300000000000000',
+      nearAPI.utils.format.formatNearAmount(nearAmount)
+    )
+    .then(async res =>{
+      let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err=>{
+        console.log(err)
+      });
+      setBalance(newBalance)
     })
     .catch(err=>{
       console.log(err);
     })
-  }, []);
+  }
 
-  const deposit = async () => {
-    await window.contract.deposit(
+  const withdrawal = async () => {
+    await window.contract.retrieve_credits(
       {},
       '300000000000000',
-      '5000000000000000000'
+      '0'
     )
-    .then(res=>{
-      console.log(res)
+    .then(async res =>{
+      let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err=>{
+        console.log(err)
+      });
+      setBalance(newBalance)
     })
     .catch(err=>{
       console.log(err);
@@ -54,18 +73,20 @@ const Home = () => {
   }
 
   const flip = () => {
+    
+    let size = nearAPI.utils.format.parseNearAmount(value);
 
-    let size = (value*1e18).toString();
-    // let size = (value).toString();
-
-    console.log(size);
     setStatus(FLIP_GOING);
-    window.contract.play({_bet_type: true, bet_size: size})
+    window.contract.play({_bet_type: choice, bet_size: size})
     .then(res=>{
       console.log(res);
-      if(res === true)
-        setStatus(FLIP_WON);
-      else setStatus(FLIP_LOST);
+      if (res === true) {
+        setStatus(FLIP_WON)
+      } else if (res === false) {
+        setStatus(FLIP_LOST);
+      } else {
+        //add error handler here show modal wwith error
+      }
     })
     .catch(err => {
       setStatus(FLIP_LOST);
@@ -90,7 +111,7 @@ const Home = () => {
     >
       <div className="home">
         <Row style={{margin: "0px"}}>
-          <Header />
+          <Header balanceProps={balance} withdrawalFunc={withdrawal} depositFunc={(amount) => deposit(amount)} />
         </Row>    
         <Row className={`home_block home_start ${status === FLIP_NONE ? "home_active" : ''}`}>
           <Col md={12}>

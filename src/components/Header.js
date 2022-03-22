@@ -4,8 +4,15 @@ import { Image, Stack } from 'react-bootstrap';
 import KangarooLogo from '../assets/kangaroo-logo.png';
 import { login, logout } from '../utils.js';
 
-const Header = () => {
+const Header = (props) => {
   
+  let connectionButton;
+  if (window.accountId == null) {
+    connectionButton = <button className="bold-font btn-transparent header_connect_btn" onClick={()=>login()}>Connect Wallet</button>;
+  } else {
+    connectionButton = <button className="bold-font btn-transparent header_connect_btn" onClick={()=>props.withdrawalFunc()}>Ⓝ {props.balanceProps}</button>;
+  }
+
   return (
     <div className='header'>
       <div className='header_background'></div>
@@ -17,7 +24,7 @@ const Header = () => {
           <a href="/#">FAQ</a>
 
         </Stack>
-        <button className="bold-font btn-transparent header_connect_btn" onClick={()=>login()}>Connect Wallet</button>
+        {connectionButton}
       </Stack>      
     </div>
   );
