@@ -43,10 +43,8 @@ const Home = () => {
 
 
   useEffect(async () => {
-    // setStatus(FLIPPING);
     setLoading(true);
     await initContract();
-    // await loadTxHistory();
     
     let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err=>{
       console.log(err)

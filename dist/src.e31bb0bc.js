@@ -69186,8 +69186,6 @@ const RecentFlips = props => {
 
   const getTime = time => {
     let currentTime = new Date().getTime();
-    console.log(currentTime);
-    console.log(time);
     let min = parseInt((currentTime - time) / 60);
     let hour = 0;
 
@@ -71730,10 +71728,8 @@ const Home = () => {
     funding: false
   });
   (0, _react.useEffect)(async () => {
-    // setStatus(FLIPPING);
     setLoading(true);
-    await (0, _utils.initContract)(); // await loadTxHistory();
-
+    await (0, _utils.initContract)();
     let newBalance = await window.contract.get_credits({
       account_id: window.accountId
     }).catch(err => {
@@ -71994,7 +71990,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58751" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

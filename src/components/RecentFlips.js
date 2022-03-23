@@ -16,8 +16,6 @@ const RecentFlips = (props) => {
     
     let currentTime = new Date().getTime();
 
-    console.log(currentTime);
-    console.log(time);
     let min = parseInt((currentTime - time ) / 60);
     let hour = 0;
 
