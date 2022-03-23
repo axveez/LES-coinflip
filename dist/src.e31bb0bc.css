@@ -352,6 +352,7 @@
   order: 3;
   flex-grow: 0;
   margin: 0px 46px;
+  z-index: 1000;
 }
 .recent_flips {
   margin: auto;
@@ -400,6 +401,55 @@
 
 .popup .modal-body p {
   text-align: center;
+}
+
+.dark-modal {
+  color: white;
+}
+.dark-modal .btn-close {
+  color: white;
+}
+.dark-modal .modal-content {
+  margin: auto;
+  background: #4A3959;
+  border-radius: 16px;
+  padding: 32px;
+}
+.dark-modal .modal-header {
+  border-bottom: none;
+}
+.dark-modal .modal-title, .dark-modal p {
+  text-align: left;
+}
+.dark-modal .modal-title {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 37px;
+  /* identical to box height */
+  letter-spacing: 0.03em;
+  /* white */
+  color: #FFFFFF;
+}
+.dark-modal h4.title {
+  font-family: Titillium Web;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.dark-modal p {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.03em;
+  /* white */
+  color: #FFFFFF;
 }
 .spinner .modal-content {
   width: 50px !important;

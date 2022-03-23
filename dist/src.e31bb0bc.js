@@ -68861,7 +68861,7 @@ const CoinSelect = props => {
     min: 0,
     max: 5,
     defaultValue: 0.1,
-    step: 0.01
+    step: 0.1
   })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement("button", {
     className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
   }, /*#__PURE__*/_react.default.createElement("span", {
@@ -68996,7 +68996,7 @@ function getConfig(env) {
       return {
         networkId: 'local',
         nodeUrl: 'http://localhost:3030',
-        keyPath: `${"/Users/admin"}/.near/validator_key.json`,
+        keyPath: `${"C:\\Users\\Joao"}/.near/validator_key.json`,
         walletUrl: 'http://localhost:4000/wallet',
         contractName: CONTRACT_NAME
       };
@@ -69127,11 +69127,20 @@ const Header = props => {
     className: "pull-right",
     gap: 2
   }, /*#__PURE__*/_react.default.createElement("a", {
-    href: "/#"
+    href: "/#",
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      about: true
+    })
   }, "About"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "/#"
+    href: "/#",
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      howTo: true
+    })
   }, "How To Play"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "/#"
+    href: "/#",
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      faq: true
+    })
   }, "FAQ")), connectionButton));
 };
 
@@ -69586,7 +69595,137 @@ function Spinner(props) {
 
 var _default = Spinner;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../styles/spinner.scss":"styles/spinner.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/loading-buffering.gif":"assets/loading-buffering.gif"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../styles/spinner.scss":"styles/spinner.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/loading-buffering.gif":"assets/loading-buffering.gif"}],"components/About.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+require("../styles/modal.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const About = props => {
+  const {
+    show,
+    setShow
+  } = props;
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = () => setShow(true);
+
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
+    show: show,
+    onHide: handleClose,
+    className: "dark-modal m-auto"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Header, {
+    closeButton: true
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, "Flip Responsibly")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("p", null, "Please flip responsibly when playing KCF so it does not impact your well-being . Only play with NEAR you are willing to part with."), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "Resources"), /*#__PURE__*/_react.default.createElement("p", null, "Chat WWW.NCPGAMBLING.ORG/CHAT"), /*#__PURE__*/_react.default.createElement("p", null, "Call 1-900-522-4700"), /*#__PURE__*/_react.default.createElement("p", null, "Text 1-800-522-4700")));
+};
+
+var _default = About;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../styles/modal.scss":"styles/modal.scss"}],"components/Faq.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+require("../styles/modal.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Faq = props => {
+  const {
+    show,
+    setShow
+  } = props;
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = () => setShow(true);
+
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
+    show: show,
+    onHide: handleClose,
+    className: "dark-modal m-auto"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Header, {
+    closeButton: true
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, "FAQ")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "What is Kangaroo Coin Flip?"), /*#__PURE__*/_react.default.createElement("p", null, "Kangaroo Coin Flip is a smart contract that allows users to go double or nothing with NEAR tokens. Odds are 50/50 with a % fee that goes to KCF NFT holders."), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "House Wallet"), /*#__PURE__*/_react.default.createElement("p", null, "kcfhouse.near"), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "Developer Wallet"), /*#__PURE__*/_react.default.createElement("p", null, "kcfteam.near"), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "Where can I learn more?"), /*#__PURE__*/_react.default.createElement("p", null, "Hop on over to our Discord!", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://discord.gg/M9BYrTAPZp",
+    target: "_blank"
+  }, "https://discord.gg/M9BYrTAPZp")), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "Where can I learn more?"), /*#__PURE__*/_react.default.createElement("p", null, "Each flip has a 4.5% fee applied with 4% going to holders, .25% going to the kcfhouse.near, and .25% going to the kcfteam.near")));
+};
+
+var _default = Faq;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../styles/modal.scss":"styles/modal.scss"}],"components/HowTo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+require("../styles/modal.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const HowTo = props => {
+  const {
+    show,
+    setShow
+  } = props;
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = () => setShow(true);
+
+  return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
+    show: show,
+    onHide: handleClose,
+    className: "dark-modal m-auto"
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Header, {
+    closeButton: true
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, "How to Play")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("p", null, "1. Connect your NEAR wallet. (Get NEAR wallet @https://wallet.near.org/ )"), /*#__PURE__*/_react.default.createElement("p", null, "2. Pick either heads or tails."), /*#__PURE__*/_react.default.createElement("p", null, "3. Select the desired amount to flip."), /*#__PURE__*/_react.default.createElement("p", null, "4. Click \u201CFlip\u201D."), /*#__PURE__*/_react.default.createElement("p", null, "5. Click approve and allow coin to flip."), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "What is a NEAR wallet?"), /*#__PURE__*/_react.default.createElement("p", null, "NEAR wallet is a program that allows users to manage digital assets on NEAR protocol. Visit https://wallet.near.org/, create an account and fund your wallet. Purchase NEAR via Kucoin, Binance, Gate.io, etc."), /*#__PURE__*/_react.default.createElement("h4", {
+    className: "title"
+  }, "How do I fund my NEAR wallet?"), /*#__PURE__*/_react.default.createElement("p", null, "Purchase NEAR via a central exchange such as Kucoin, Binance, Gate.io, etc and send your NEAR to your wallet address after creating a NEAR wallet account.")));
+};
+
+var _default = HowTo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../styles/modal.scss":"styles/modal.scss"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -71513,6 +71652,12 @@ var _PopupModal = _interopRequireDefault(require("../components/PopupModal"));
 
 var _Spinner = _interopRequireDefault(require("../components/Spinner"));
 
+var _About = _interopRequireDefault(require("../components/About"));
+
+var _Faq = _interopRequireDefault(require("../components/Faq"));
+
+var _HowTo = _interopRequireDefault(require("../components/HowTo"));
+
 var _reactBootstrap = require("react-bootstrap");
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -71540,6 +71685,13 @@ const Home = () => {
   const [errTitle, setErrTitle] = (0, _react.useState)('');
   const [errMsg, setErrMsg] = (0, _react.useState)('');
   const [balance, setBalance] = (0, _react.useState)(null);
+  const [shows, setShows] = (0, _react.useState)({
+    about: false,
+    faq: false,
+    howTo: false,
+    login: false,
+    funding: false
+  });
   (0, _react.useEffect)(async () => {
     // setStatus(FLIPPING);
     setLoading(true);
@@ -71680,7 +71832,9 @@ const Home = () => {
     }
   }, /*#__PURE__*/_react.default.createElement(_Header.default, {
     balanceProps: nearConversion(balance),
-    setshowDeposit: setshowDeposit
+    setshowDeposit: setshowDeposit,
+    showsProps: shows,
+    setShowsFunc: setShows
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: `home_block home_start ${status === _constants.FLIP_NONE ? "home_active" : ''}`
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
@@ -71719,6 +71873,21 @@ const Home = () => {
   }), /*#__PURE__*/_react.default.createElement(_Spinner.default, {
     loadingProps: loading,
     setLoadingFunc: setLoading
+  }), /*#__PURE__*/_react.default.createElement(_About.default, {
+    show: shows.about,
+    setShow: f => setShows({ ...shows,
+      about: f
+    })
+  }), /*#__PURE__*/_react.default.createElement(_Faq.default, {
+    show: shows.faq,
+    setShow: f => setShows({ ...shows,
+      faq: f
+    })
+  }), /*#__PURE__*/_react.default.createElement(_HowTo.default, {
+    show: shows.howTo,
+    setShow: f => setShows({ ...shows,
+      howTo: f
+    })
   }), /*#__PURE__*/_react.default.createElement("div", {
     id: "modal-container"
   }));
@@ -71726,7 +71895,7 @@ const Home = () => {
 
 var _default = Home;
 exports.default = _default;
-},{"near-api-js":"../node_modules/near-api-js/lib/browser-index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../components/CoinSelect":"components/CoinSelect.js","../components/Footer":"components/Footer.js","../components/Header":"components/Header.js","../components/RecentFlips":"components/RecentFlips.js","../components/FlipBoard":"components/FlipBoard.js","../components/CModal":"components/CModal.js","../components/PopupModal":"components/PopupModal.js","../components/Spinner":"components/Spinner.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","axios":"../node_modules/axios/index.js","../utils.js":"utils.js","../constants":"constants.js"}],"../node_modules/bootstrap/dist/css/bootstrap.min.css":[function(require,module,exports) {
+},{"near-api-js":"../node_modules/near-api-js/lib/browser-index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../components/CoinSelect":"components/CoinSelect.js","../components/Footer":"components/Footer.js","../components/Header":"components/Header.js","../components/RecentFlips":"components/RecentFlips.js","../components/FlipBoard":"components/FlipBoard.js","../components/CModal":"components/CModal.js","../components/PopupModal":"components/PopupModal.js","../components/Spinner":"components/Spinner.js","../components/About":"components/About.js","../components/Faq":"components/Faq.js","../components/HowTo":"components/HowTo.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","axios":"../node_modules/axios/index.js","../utils.js":"utils.js","../constants":"constants.js"}],"../node_modules/bootstrap/dist/css/bootstrap.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -71737,7 +71906,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./../assets/background.jpg":[["background.73f2e897.jpg","assets/background.jpg"],"assets/background.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./..\\assets\\background.jpg":[["background.73f2e897.jpg","assets/background.jpg"],"assets/background.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -71785,7 +71954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50211" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
