@@ -68905,7 +68905,7 @@ var _discord = _interopRequireDefault(require("../assets/discord.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Footer = () => {
+const Footer = props => {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "footer"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
@@ -68915,12 +68915,18 @@ const Footer = () => {
     direction: "horizontal",
     className: "pull-right-footer",
     gap: 3
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    href: "/# "
-  }, "About"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "/#"
-  }, "How To Play"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "/#"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      about: true
+    })
+  }, "About"), /*#__PURE__*/_react.default.createElement("span", {
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      howTo: true
+    })
+  }, "How To Play"), /*#__PURE__*/_react.default.createElement("span", {
+    onClick: () => props.setShowsFunc({ ...props.showsProps,
+      faq: true
+    })
   }, "FAQ")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
     direction: "horizontal",
     className: "mt-2",
@@ -69180,6 +69186,8 @@ const RecentFlips = props => {
 
   const getTime = time => {
     let currentTime = new Date().getTime();
+    console.log(currentTime);
+    console.log(time);
     let min = parseInt((currentTime - time) / 60);
     let hour = 0;
 
@@ -69189,6 +69197,32 @@ const RecentFlips = props => {
     }
 
     return hour > 0 ? hour + ' h ' + min + ' m' : min + ' m';
+  };
+
+  const convertWin = result => {
+    if (result) {
+      return "won";
+    } else {
+      return "lost";
+    }
+  };
+
+  const convertBet = result => {
+    if (result) {
+      return "HEADS";
+    } else {
+      return "TAILS";
+    }
+  };
+
+  const nearConversion = amount => {
+    if (amount == null) {
+      return null;
+    } else if (amount.length > 24) {
+      return amount.slice(0, amount.length - 24) + "." + amount.slice(amount.length - 24, amount.length - 24 + 2);
+    } else {
+      return "0." + amount.slice(0, 3);
+    }
   };
 
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
@@ -69206,7 +69240,7 @@ const RecentFlips = props => {
       key: key
     }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
       src: _realtime.default
-    }), /*#__PURE__*/_react.default.createElement("p", null, item.signer_id + ` flipped ` + item.amount + ' Ⓝ and ' + item.result.toLowerCase()), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
+    }), /*#__PURE__*/_react.default.createElement("p", null, item.signer_id + ` flipped ` + convertBet(item.bet_type) + ` betting ` + nearConversion(item.bet_size) + ' Ⓝ and ' + convertWin(item.result)), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
   })));
 };
 
@@ -69478,14 +69512,14 @@ function CModal(props) {
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "cmodal"
+    className: "dark-modal"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
     show: show,
     onHide: handleClose,
-    className: "cmodal"
+    className: "dark-modal"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Header, {
     closeButton: true
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, "Notice")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("p", null, "To play on Classy Kangaroo Coin Flip you first need to deposit some \u24C3", /*#__PURE__*/_react.default.createElement("br", null), "You also can't bet more than your deposited balance."), /*#__PURE__*/_react.default.createElement("p", null, "How much do you want to deposit?"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.InputGroup, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, "Funding")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("p", null, "To play on Classy Kangaroo Coin Flip you first need to deposit some \u24C3", /*#__PURE__*/_react.default.createElement("br", null), "You also can't bet more than your deposited balance."), /*#__PURE__*/_react.default.createElement("p", null, "How much do you want to deposit?"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.InputGroup, {
     className: "mb-3"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.InputGroup.Text, {
     id: "basic-addon1"
@@ -69496,9 +69530,11 @@ function CModal(props) {
     "aria-label": "",
     "aria-describedby": "basic-addon1"
   }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Footer, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "bg-white text-purple",
     variant: "secondary",
     onClick: _ => deposit(inputBox)
   }, "Deposit"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "bg-purple text-white",
     variant: "primary",
     onClick: _ => withdrawal()
   }, "Withdraw my balance"))));
@@ -69537,11 +69573,12 @@ const PopupModal = props => {
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
     show: show,
     onHide: handleClose,
-    className: "cmodal"
+    className: "dark-modal"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Header, {
     closeButton: true
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Title, null, title)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Body, null, /*#__PURE__*/_react.default.createElement("p", null, msg)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Footer, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     variant: "primary",
+    className: "bg-white text-purple",
     onClick: () => handleClose()
   }, "Close")));
 };
@@ -71859,7 +71896,10 @@ const Home = () => {
     }
   }, /*#__PURE__*/_react.default.createElement(_RecentFlips.default, {
     history: txHistory
-  })), /*#__PURE__*/_react.default.createElement(_Footer.default, null)), /*#__PURE__*/_react.default.createElement(_PopupModal.default, {
+  })), /*#__PURE__*/_react.default.createElement(_Footer.default, {
+    showsProps: shows,
+    setShowsFunc: setShows
+  })), /*#__PURE__*/_react.default.createElement(_PopupModal.default, {
     show: showPopup,
     setShow: setShowPopup,
     msg: errMsg,
@@ -71954,7 +71994,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50211" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50847" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
