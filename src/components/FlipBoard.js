@@ -18,7 +18,7 @@ const FlipBoard = (props) => {
       head = 'Flipping ' + value + ' Ⓝ';
       desc = 'You Choose ' + (choice ? 'Heads' : 'Tails');
     } else if(status === FLIP_WON) {
-      head = 'You Won' + value * 2 + ' Ⓝ';
+      head = 'You Won ' + value * 2 + ' Ⓝ';
       desc = 'Current Streak: ' + 1;
     } else if(status === FLIP_LOST) {
       head = 'You Lost ' + value + ' Ⓝ';
@@ -65,16 +65,16 @@ const FlipBoard = (props) => {
           <button
           className="btn-dark-bg full-width"
           style={{display: `${ status === FLIP_WON ? 'block' : 'none' }`}}
-          onClick={()=>setStatus(FLIP_DOUBLE)}
+          onClick={()=>setStatus(FLIP_NONE)}
           >
             <span className="bold-font">Double Or Nothing!</span>
           </button>
-          <button
+          {/* <button
           className="btn-transparent full-width"
           style={{visibility: `${status===FLIP_WON || status===FLIP_DOUBLE ? 'visible' : 'hidden'}`}}
           >
-            <span className="bold-font">Withdraw 2.0 <small>Ⓝ</small></span>
-          </button>
+            <span className="bold-font">Withdraw funds <small>Ⓝ</small></span>
+          </button> */}
         </Stack>
       </Stack>
     </Col>
