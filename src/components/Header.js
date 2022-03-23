@@ -10,8 +10,6 @@ const Header = (props) => {
   if (window.accountId == null || typeof window.accountId === 'undefined' || accountId == '') {
     connectionButton = <button className="bold-font btn-transparent header_connect_btn" onClick={()=>login()}>Connect Wallet</button>;
   } else {
-    console.log("accountId");
-    console.log(accountId);
     connectionButton = <button className="bold-font btn-transparent header_connect_btn" onClick={()=>props.setshowDeposit(true)}>Ⓝ {props.balanceProps}</button>;
   }
 

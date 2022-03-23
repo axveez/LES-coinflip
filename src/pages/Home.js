@@ -20,8 +20,6 @@ import { initContract } from '../utils.js';
 import { FLIP_GOING, FLIP_WON, FLIP_LOST, FLIP_NONE, FLIP_DOUBLE, HEAD, TAIL } from '../constants';
 import reactDom from "react-dom";
 
-const API_URL = process.env.API_URL || 'https://localhost:5000';
-const API_KEY = process.env.API_KEY || 0;
 const Home = () => {
 
   const [status, setStatus] = useState(FLIP_NONE);
@@ -49,6 +47,7 @@ const Home = () => {
       console.log(err)
     });
     setBalance(newBalance)
+    loadTxHistory();
     setLoading(false);
   }, []);
 
@@ -58,7 +57,7 @@ const Home = () => {
     } else if (amount.length > 24) {
       return amount.slice(0, amount.length - 24) + "." + amount.slice(amount.length - 24, (amount.length - 24) + 2);
     } else {
-      return "0." + "000000000000000000000000".slice(0, 24 - amount.length) + amount;
+      return "0." + amount.slice(0, 3);
     }
   }
 
@@ -72,8 +71,6 @@ const Home = () => {
 
   const deposit = async (nearAmount) => {
     setLoading(true);
-    console.log(nearAmount);
-    console.log(yoctoConversion(nearAmount))
     await window.contract.deposit(
       {},
       '300000000000000',
@@ -94,6 +91,7 @@ const Home = () => {
   };
 
   const withdrawal = async () => {
+    setLoading(true);
     await window.contract.retrieve_credits(
       {},
       '300000000000000',
@@ -108,6 +106,8 @@ const Home = () => {
     .catch(err=>{
       console.log(err);
     })
+    setLoading(false);
+    setshowDeposit(false);
   };
 
   const flip = async () => {
@@ -143,7 +143,7 @@ const Home = () => {
   };
 
   const loadTxHistory = async () => {
-    await axios.get(`${API_URL}?api_key=${API_KEY}&limit=${limit}`)
+    await axios.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b`)
       .then(res => {
         if(res && res.data && res.data.data && res.data.data.length) {
           setTxHistory(res.data.data);

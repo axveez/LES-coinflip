@@ -67,7 +67,7 @@ const FlipBoard = (props) => {
           style={{display: `${ status === FLIP_WON ? 'block' : 'none' }`}}
           onClick={()=>setStatus(FLIP_NONE)}
           >
-            <span className="bold-font">Double Or Nothing!</span>
+            <span className="bold-font">Play again!</span>
           </button>
           {/* <button
           className="btn-transparent full-width"
