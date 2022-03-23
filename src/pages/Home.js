@@ -1,6 +1,5 @@
 import { utils as nearUtils } from "near-api-js";
-
-import BigNumber from "bignumber.js";
+import regeneratorRuntime from "regenerator-runtime";
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
