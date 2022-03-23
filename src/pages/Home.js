@@ -70,6 +70,10 @@ const Home = () => {
   }
 
   const deposit = async (nearAmount) => {
+    if (window.accountId == null || typeof window.accountId === 'undefined' || accountId == '') {
+      showPopupModal("You need to login", "To access this functionality you should log in first. Just click on the connect wallet button on the top of the page");
+      return
+    }
     setLoading(true);
     await window.contract.deposit(
       {},
@@ -91,6 +95,10 @@ const Home = () => {
   };
 
   const withdrawal = async () => {
+    if (window.accountId == null || typeof window.accountId === 'undefined' || accountId == '') {
+      showPopupModal("You need to login", "To access this functionality you should log in first. Just click on the connect wallet button on the top of the page");
+      return
+    }
     setLoading(true);
     await window.contract.retrieve_credits(
       {},
@@ -145,6 +153,7 @@ const Home = () => {
   const loadTxHistory = async () => {
     await axios.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b`)
       .then(res => {
+        console.log(res);
         if(res && res.data && res.data.data && res.data.data.length) {
           setTxHistory(res.data.data);
         }

@@ -10,7 +10,7 @@ const PopupModal = (props) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} className='popup'>
+    <Modal show={show} onHide={handleClose} className='cmodal'>
       <Modal.Header closeButton>
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
