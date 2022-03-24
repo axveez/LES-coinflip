@@ -1,4 +1,4 @@
-import { utils as nearUtils } from "near-api-js";
+import { utils } from "near-api-js";
 import regeneratorRuntime from "regenerator-runtime";
 
 import React, { useState, useEffect } from 'react';
@@ -43,10 +43,8 @@ const Home = () => {
 
 
   useEffect(async () => {
-    // setStatus(FLIPPING);
     setLoading(true);
     await initContract();
-    // await loadTxHistory();
 
     let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err => {
       console.log(err)
@@ -62,16 +60,12 @@ const Home = () => {
     } else if (amount.length > 24) {
       return amount.slice(0, amount.length - 24) + "." + amount.slice(amount.length - 24, (amount.length - 24) + 2);
     } else {
-      return "0." + amount.slice(0, 3);
+      return utils.format.formatNearAmount(amount);
     }
   }
 
   const yoctoConversion = (amount) => {
-    if (amount.toString().includes(".")) {
-      return amount.toString().split(".")[0] + amount.toString().split(".")[1] + "000000000000000000000000".slice(amount.toString().split(".")[1].length)
-    } else {
-      return amount.toString() + "000000000000000000000000"
-    }
+    return utils.format.parseNearAmount(amount.toString())
   }
 
   const deposit = async (nearAmount) => {

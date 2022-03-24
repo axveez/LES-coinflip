@@ -11,8 +11,6 @@ const RecentFlips = (props) => {
   const getTime = (time) => {
     
     let currentTime = new Date().getTime();
-    console.log(currentTime);
-    console.log(time);
 
     let min = parseInt((currentTime - time ) / 60000);
     let hour = 0;
@@ -25,7 +23,7 @@ const RecentFlips = (props) => {
   }
 
   const convertWin = (result) => {
-    if (result) {
+    if (result=="true") {
       return "won";
     } else {
       return "lost";

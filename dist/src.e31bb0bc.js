@@ -69184,8 +69184,6 @@ const RecentFlips = props => {
 
   const getTime = time => {
     let currentTime = new Date().getTime();
-    console.log(currentTime);
-    console.log(time);
     let min = parseInt((currentTime - time) / 60000);
     let hour = 0;
 
@@ -69198,7 +69196,7 @@ const RecentFlips = props => {
   };
 
   const convertWin = result => {
-    if (result) {
+    if (result == "true") {
       return "won";
     } else {
       return "lost";
@@ -71728,10 +71726,8 @@ const Home = () => {
     funding: false
   });
   (0, _react.useEffect)(async () => {
-    // setStatus(FLIPPING);
     setLoading(true);
-    await (0, _utils.initContract)(); // await loadTxHistory();
-
+    await (0, _utils.initContract)();
     let newBalance = await window.contract.get_credits({
       account_id: window.accountId
     }).catch(err => {
@@ -71748,16 +71744,12 @@ const Home = () => {
     } else if (amount.length > 24) {
       return amount.slice(0, amount.length - 24) + "." + amount.slice(amount.length - 24, amount.length - 24 + 2);
     } else {
-      return "0." + amount.slice(0, 3);
+      return _nearApiJs.utils.format.formatNearAmount(amount);
     }
   };
 
   const yoctoConversion = amount => {
-    if (amount.toString().includes(".")) {
-      return amount.toString().split(".")[0] + amount.toString().split(".")[1] + "000000000000000000000000".slice(amount.toString().split(".")[1].length);
-    } else {
-      return amount.toString() + "000000000000000000000000";
-    }
+    return _nearApiJs.utils.format.parseNearAmount(amount.toString());
   };
 
   const deposit = async nearAmount => {
@@ -71992,7 +71984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65401" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49996" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
