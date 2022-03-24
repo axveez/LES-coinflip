@@ -11,7 +11,7 @@ const Footer = (props) => {
     <div className="footer">
       <Stack className="footer_content" gap={3}>
         <Stack direction="horizontal" className="pull-right-footer" gap={3}>
-          <span onClick={()=>props.setShowsFunc({...props.showsProps, about: true})}>About</span>
+          <span onClick={()=>props.setShowsFunc({...props.showsProps, about: true})}>Flip Responsibly</span>
           <span onClick={()=>props.setShowsFunc({...props.showsProps, howTo: true})}>How To Play</span>
           <span onClick={()=>props.setShowsFunc({...props.showsProps, faq: true})}>FAQ</span>
         </Stack>

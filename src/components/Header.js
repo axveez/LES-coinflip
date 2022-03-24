@@ -19,7 +19,7 @@ const Header = (props) => {
       <Stack direction='horizontal' className="header_navbar header-mobile" gap={3}>
         <Image src={KangarooLogo}  className = "logo-header"/><div></div>
         <Stack direction="horizontal" className="pull-right" gap={2}>
-          <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, about: true})}>About</a>
+          <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, about: true})}>Flip Responsibly</a>
           <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, howTo: true})}>How To Play</a>
           <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, faq: true})}>FAQ</a>
 

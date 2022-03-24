@@ -68919,7 +68919,7 @@ const Footer = props => {
     onClick: () => props.setShowsFunc({ ...props.showsProps,
       about: true
     })
-  }, "About"), /*#__PURE__*/_react.default.createElement("span", {
+  }, "Flip Responsibly"), /*#__PURE__*/_react.default.createElement("span", {
     onClick: () => props.setShowsFunc({ ...props.showsProps,
       howTo: true
     })
@@ -69137,7 +69137,7 @@ const Header = props => {
     onClick: () => props.setShowsFunc({ ...props.showsProps,
       about: true
     })
-  }, "About"), /*#__PURE__*/_react.default.createElement("a", {
+  }, "Flip Responsibly"), /*#__PURE__*/_react.default.createElement("a", {
     href: "/#",
     onClick: () => props.setShowsFunc({ ...props.showsProps,
       howTo: true
@@ -71984,7 +71984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49996" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50234" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
