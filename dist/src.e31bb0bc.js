@@ -69177,8 +69177,6 @@ require("../styles/recent_flips.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const recentFlips = ['hunnaharms.near flipped 0.25 Ⓝ and doubled', 'x4232333444232ss.near flipped 0.3 Ⓝ and has doubled'];
-
 const RecentFlips = props => {
   const {
     history
@@ -69186,7 +69184,9 @@ const RecentFlips = props => {
 
   const getTime = time => {
     let currentTime = new Date().getTime();
-    let min = parseInt((currentTime - time) / 60);
+    console.log(currentTime);
+    console.log(time);
+    let min = parseInt((currentTime - time) / 60000);
     let hour = 0;
 
     if (min >= 60) {
@@ -71840,7 +71840,7 @@ const Home = () => {
   };
 
   const loadTxHistory = async () => {
-    await _axios.default.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b`).then(res => {
+    await _axios.default.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b&limit=10`).then(res => {
       console.log(res);
 
       if (res && res.data && res.data.data && res.data.data.length) {
@@ -71992,7 +71992,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64840" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -3,11 +3,7 @@ import { Row, Col, Stack, Image } from 'react-bootstrap';
 import RealtimeIcon from '../assets/realtime.png';
 
 import '../styles/recent_flips.scss'
-const recentFlips = [
-  'hunnaharms.near flipped 0.25 Ⓝ and doubled',
-  'x4232333444232ss.near flipped 0.3 Ⓝ and has doubled',
 
-]
 const RecentFlips = (props) => {
 
   const { history } = props;
@@ -15,8 +11,10 @@ const RecentFlips = (props) => {
   const getTime = (time) => {
     
     let currentTime = new Date().getTime();
+    console.log(currentTime);
+    console.log(time);
 
-    let min = parseInt((currentTime - time ) / 60);
+    let min = parseInt((currentTime - time ) / 60000);
     let hour = 0;
 
     if(min >= 60) {
