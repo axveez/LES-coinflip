@@ -71728,8 +71728,10 @@ const Home = () => {
     funding: false
   });
   (0, _react.useEffect)(async () => {
+    // setStatus(FLIPPING);
     setLoading(true);
-    await (0, _utils.initContract)();
+    await (0, _utils.initContract)(); // await loadTxHistory();
+
     let newBalance = await window.contract.get_credits({
       account_id: window.accountId
     }).catch(err => {
@@ -71886,7 +71888,7 @@ const Home = () => {
     setStatus: setStatus,
     value: value
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
-    className: "mt-5 m-auto",
+    className: "mt-5 mx-3",
     style: {
       display: `${status === _constants.FLIP_NONE ? 'block' : 'none'}`
     }
@@ -71990,7 +71992,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55413" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64840" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
