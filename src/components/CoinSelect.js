@@ -45,7 +45,7 @@ const CoinSelect = (props) => {
           onChange={(nextValue) => {
             setValue(nextValue);
           }}
-          min={0}
+          min={0.1}
           max={5}
           defaultValue={0.1}
           step={0.1}
