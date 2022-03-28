@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col, Stack, Image } from 'react-bootstrap';
 import RealtimeIcon from '../assets/realtime.png';
+import TailsCoin from "../assets/tails-logo-min.png";
+import HeadsCoin from "../assets/heads-logo-min.png";
 
 import '../styles/recent_flips.scss'
 
@@ -49,21 +51,23 @@ const RecentFlips = (props) => {
   }
 
   return (
-    <Col md={8} className="recent_flips">
+    <Col md={8} className="recent_flips text-center">
       <h2 className="bold-font">Recent Flips</h2>
       <Stack gap={3}>
         {
           history.map((item, key)=>{  
             return (
               <Stack direction="horizontal" className="recent_flips_item" gap={2} key={key}>
-                <Image src={RealtimeIcon} />
-                <p>{item.signer_id + ` flipped ` +convertBet(item.bet_type)+ ` betting ` +nearConversion(item.bet_size) + ' Ⓝ and ' + convertWin(item.result) }</p>
+                <Image src={item.bet_type ? RealtimeIcon : RealtimeIcon} width="37px"/>
+                <p>{`${item.signer_id} flipped ${convertBet(item.bet_type)} betting ${nearConversion(item.bet_size)} Ⓝ and ${convertWin(item.result)}` }</p>
                 <p>{ getTime(item.timestamp) }</p>
               </Stack>
             )
           })
         }
       </Stack>
+
+      <small>powered by <a href="https://havendao.community/" target="_blank">Haven</a></small>
     </Col>
   );
 };

@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import '../styles/modal.scss';
-import { Modal, Button, InputGroup,FormControl } from 'react-bootstrap';
+import { Modal, Button, InputGroup,FormControl, Toast } from 'react-bootstrap';
 import nearAPI from 'near-api-js';
+import { logout } from '../utils.js';
 
 function CModal(props) {
-  const { show, setShow, deposit, withdrawal } = props;
+  const { show, setShow, deposit, withdrawal, showPopupModal } = props;
   const [inputBox, setInputBox] = useState("0");
+  const [toastshow, setToastShow] = useState("false");
 
   const handleClose = () => setShow(false);
 
   const printer = () => {
     console.log(inputBox);
   }
+
+
   return (
+    <>
     <div className='dark-modal'>
       <Modal show={show} onHide={handleClose} className='dark-modal'>
         <Modal.Header closeButton>
@@ -33,19 +38,24 @@ function CModal(props) {
               placeholder="value to deposit"
               aria-label=""
               aria-describedby="basic-addon1"
+              type="number"
             />
           </InputGroup>
         </Modal.Body> 
         <Modal.Footer>
-          <Button className="bg-white text-purple" variant="secondary" onClick={_ =>deposit(inputBox)}>
+          <Button className="bg-white text-purple" variant="secondary" onClick={_ =>inputBox > 0.1 ? deposit(inputBox) : showPopupModal('Error !','Min Deposit are 0.11')}>
             Deposit
           </Button>
           <Button className="bg-purple text-white" variant="primary" onClick={_ => withdrawal()}>
             Withdraw my balance 
           </Button>
+          <Button className="bg-dark text-white" variant="primary" onClick={_ => logout()}>
+            logout
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
+  </>
   );
 }
 

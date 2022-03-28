@@ -3,17 +3,19 @@ import { Row, Col, Stack, Image, Button } from "react-bootstrap";
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import'../styles/coin_select.scss';
-import TailsCoin from "../assets/tails-logo.png";
-import HeadsCoin from "../assets/heads-logo.png";
+import TailsCoin from "../assets/tails-logo-min.png";
+import HeadsCoin from "../assets/heads-logo-min.png";
 
 import { FLIP_NONE, FLIP_GOING, FLIP_WON, FLIP_LOST, HEAD, TAIL } from '../constants';
 
 const CoinSelect = (props) => {
-
-  const [flipValue, setFlipValue] = useState(0.1);
-  const { choice, setChoice, value, setValue, flip } = props;
+  const { choice, setChoice, value, setValue, flip, showPopupModal } = props;
   useEffect(() => {
   }, [choice])
+
+  const underValue = _ => {
+    showPopupModal('Error !','Min Flip are 0.1')
+  }
 
   return (
     <div className="coin_select block">
@@ -43,7 +45,7 @@ const CoinSelect = (props) => {
           onChange={(nextValue) => {
             setValue(nextValue);
           }}
-          min={0}
+          min={0.1}
           max={5}
           defaultValue={0.1}
           step={0.1}
@@ -53,8 +55,21 @@ const CoinSelect = (props) => {
           <span>5 Ⓝ</span>
         </div>
       </Stack>
+
+      <Stack direction="horizontal" className="py-3" style={{justifyContent: "center"}} gap={3}>
+        <button className="btn full-width btn-dark-bg coin_select_flip_btn bold-font">
+          <span className="bold-font" onClick={()=>setValue(1)}>1 Ⓝ</span>
+        </button>
+        <button className="btn full-width btn-dark-bg coin_select_flip_btn bold-font">
+          <span className="bold-font" onClick={()=>setValue(2)}>2 Ⓝ</span>
+        </button>
+        <button className="btn full-width btn-dark-bg coin_select_flip_btn bold-font">
+          <span className="bold-font" onClick={()=>setValue(5)}>5 Ⓝ</span>
+        </button>
+      </Stack>
+
       <button className="btn full-width btn-dark-bg coin_select_flip_btn bold-font">
-        <span className="bold-font" onClick={flip}>Flip {value} Ⓝ</span>
+        <span className="bold-font" onClick={value >= 0.1 ? flip : underValue }>Flip {value} Ⓝ</span>
       </button>
     </div>
   );
