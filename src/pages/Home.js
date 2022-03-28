@@ -184,6 +184,7 @@ const Home = () => {
               value={value}
               setValue={setValue}
               flip={flip}
+              showPopupModal={showPopupModal}
             />
           </Col>
         </Row>
@@ -201,7 +202,7 @@ const Home = () => {
         <Footer showsProps={shows} setShowsFunc={setShows} />
       </div>
       <PopupModal show={showPopup} setShow={setShowPopup} msg={errMsg} title={errTitle} />
-      <CModal show={showDeposit} setShow={setshowDeposit} deposit={deposit} withdrawal={withdrawal} id='modal' />
+      <CModal show={showDeposit} showPopupModal={showPopupModal} setShow={setshowDeposit} deposit={deposit} withdrawal={withdrawal} id='modal' />
       <Spinner loadingProps={loading} setLoadingFunc={setLoading} />
       <About show={shows.about} setShow={(f) => setShows({ ...shows, about: f })} />
       <Faq show={shows.faq} setShow={(f) => setShows({ ...shows, faq: f })} />

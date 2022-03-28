@@ -69,8 +69,16 @@ body {
   background-size: cover !important;
   background-position: center;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54)),
-    url("../assets/background.jpg");
+    url("../assets/background-min.jpg");
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 575.98px) {
+
+  body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54)),
+      url("../assets/background-2-min.jpg");
+  }
+
 }
 
 html,
@@ -95,6 +103,7 @@ div.home {
   margin: 0px;
   width: 100%;
   padding: 0px;
+  min-height: 100vh;
   &_active {
     display: block !important;
     justify-content: center;
@@ -232,4 +241,7 @@ p {
 }
 .text-purple {
   color: #4a3959 !important;
+}
+.btn-header{
+  width: max-content;
 }
