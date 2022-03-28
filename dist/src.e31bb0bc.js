@@ -68751,10 +68751,10 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/tails-logo.png":[function(require,module,exports) {
-module.exports = "/tails-logo.081288ab.png";
-},{}],"assets/heads-logo.png":[function(require,module,exports) {
-module.exports = "/heads-logo.ceebf960.png";
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/tails-logo-min.png":[function(require,module,exports) {
+module.exports = "/tails-logo-min.cce961ee.png";
+},{}],"assets/heads-logo-min.png":[function(require,module,exports) {
+module.exports = "/heads-logo-min.3cc43a56.png";
 },{}],"constants.js":[function(require,module,exports) {
 "use strict";
 
@@ -68794,9 +68794,9 @@ require("rc-slider/assets/index.css");
 
 require("../styles/coin_select.scss");
 
-var _tailsLogo = _interopRequireDefault(require("../assets/tails-logo.png"));
+var _tailsLogoMin = _interopRequireDefault(require("../assets/tails-logo-min.png"));
 
-var _headsLogo = _interopRequireDefault(require("../assets/heads-logo.png"));
+var _headsLogoMin = _interopRequireDefault(require("../assets/heads-logo-min.png"));
 
 var _constants = require("../constants");
 
@@ -68807,19 +68807,24 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 const CoinSelect = props => {
-  const [flipValue, setFlipValue] = (0, _react.useState)(0.1);
   const {
     choice,
     setChoice,
     value,
     setValue,
-    flip
+    flip,
+    showPopupModal
   } = props;
   (0, _react.useEffect)(() => {}, [choice]);
+
+  const underValue = _ => {
+    showPopupModal('Error !', 'Min Flip are 0.1');
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "coin_select block"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-    src: _headsLogo.default,
+    src: _headsLogoMin.default,
     style: {
       display: `${choice ? 'block' : 'none'}`
     },
@@ -68827,7 +68832,7 @@ const CoinSelect = props => {
     height: 438,
     className: "coin_select_img"
   }), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-    src: _tailsLogo.default,
+    src: _tailsLogoMin.default,
     style: {
       display: `${!choice ? 'block' : 'none'}`
     },
@@ -68858,21 +68863,43 @@ const CoinSelect = props => {
     onChange: nextValue => {
       setValue(nextValue);
     },
-    min: 0,
+    min: 0.1,
     max: 5,
     defaultValue: 0.1,
     step: 0.1
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
+    direction: "horizontal",
+    className: "py-3",
+    style: {
+      justifyContent: "center"
+    },
+    gap: 3
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "bold-font",
-    onClick: flip
+    onClick: () => setValue(1)
+  }, "1 \u24C3")), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: () => setValue(2)
+  }, "2 \u24C3")), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: () => setValue(5)
+  }, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: value >= 0.1 ? flip : underValue
   }, "Flip ", value, " \u24C3")));
 };
 
 var _default = CoinSelect;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","rc-slider":"../node_modules/rc-slider/es/index.js","rc-slider/assets/index.css":"../node_modules/rc-slider/assets/index.css","../styles/coin_select.scss":"styles/coin_select.scss","../assets/tails-logo.png":"assets/tails-logo.png","../assets/heads-logo.png":"assets/heads-logo.png","../constants":"constants.js"}],"styles/footer.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","rc-slider":"../node_modules/rc-slider/es/index.js","rc-slider/assets/index.css":"../node_modules/rc-slider/assets/index.css","../styles/coin_select.scss":"styles/coin_select.scss","../assets/tails-logo-min.png":"assets/tails-logo-min.png","../assets/heads-logo-min.png":"assets/heads-logo-min.png","../constants":"constants.js"}],"styles/footer.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -69111,10 +69138,15 @@ const Header = props => {
       onClick: () => (0, _utils.login)()
     }, "Connect Wallet");
   } else {
-    connectionButton = /*#__PURE__*/_react.default.createElement("button", {
-      className: "bold-font btn-transparent header_connect_btn",
+    connectionButton = /*#__PURE__*/_react.default.createElement("div", {
+      className: "d-flex"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "bold-font px-5 btn-transparent btn-header",
       onClick: () => props.setshowDeposit(true)
-    }, "\u24C3 ", props.balanceProps);
+    }, "\u24C3 ", props.balanceProps), /*#__PURE__*/_react.default.createElement("button", {
+      className: "bold-font btn-transparent btn-header",
+      onClick: () => (0, _utils.logout)()
+    }, "Logout"));
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -69125,10 +69157,10 @@ const Header = props => {
     direction: "horizontal",
     className: "header_navbar header-mobile",
     gap: 3
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
     src: _kangarooLogo.default,
     className: "logo-header"
-  }), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
+  })), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
     direction: "horizontal",
     className: "pull-right",
     gap: 2
@@ -69172,6 +69204,10 @@ var _react = _interopRequireDefault(require("react"));
 var _reactBootstrap = require("react-bootstrap");
 
 var _realtime = _interopRequireDefault(require("../assets/realtime.png"));
+
+var _tailsLogoMin = _interopRequireDefault(require("../assets/tails-logo-min.png"));
+
+var _headsLogoMin = _interopRequireDefault(require("../assets/heads-logo-min.png"));
 
 require("../styles/recent_flips.scss");
 
@@ -69223,7 +69259,7 @@ const RecentFlips = props => {
 
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
     md: 8,
-    className: "recent_flips"
+    className: "recent_flips text-center"
   }, /*#__PURE__*/_react.default.createElement("h2", {
     className: "bold-font"
   }, "Recent Flips"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
@@ -69235,15 +69271,23 @@ const RecentFlips = props => {
       gap: 2,
       key: key
     }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-      src: _realtime.default
-    }), /*#__PURE__*/_react.default.createElement("p", null, item.signer_id + ` flipped ` + convertBet(item.bet_type) + ` betting ` + nearConversion(item.bet_size) + ' Ⓝ and ' + convertWin(item.result)), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
-  })));
+      src: item.bet_type ? _realtime.default : _realtime.default,
+      width: "37px"
+    }), /*#__PURE__*/_react.default.createElement("p", null, `${item.signer_id} flipped ${convertBet(item.bet_type)} betting ${nearConversion(item.bet_size)} Ⓝ and ${convertWin(item.result)}`), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
+  })), /*#__PURE__*/_react.default.createElement("small", null, "powered by ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://havendao.community/",
+    target: "_blank"
+  }, "Haven")));
 };
 
 var _default = RecentFlips;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/realtime.png":"assets/realtime.png","../styles/recent_flips.scss":"styles/recent_flips.scss"}],"assets/kangaflip.gif":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/realtime.png":"assets/realtime.png","../assets/tails-logo-min.png":"assets/tails-logo-min.png","../assets/heads-logo-min.png":"assets/heads-logo-min.png","../styles/recent_flips.scss":"styles/recent_flips.scss"}],"assets/kangaflip.gif":[function(require,module,exports) {
 module.exports = "/kangaflip.aa090ae0.gif";
+},{}],"assets/heads-logo.png":[function(require,module,exports) {
+module.exports = "/heads-logo.ceebf960.png";
+},{}],"assets/tails-logo.png":[function(require,module,exports) {
+module.exports = "/tails-logo.081288ab.png";
 },{}],"components/FlipBoard.js":[function(require,module,exports) {
 "use strict";
 
@@ -69486,6 +69530,8 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _nearApiJs = _interopRequireDefault(require("near-api-js"));
 
+var _utils = require("../utils.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -69497,9 +69543,11 @@ function CModal(props) {
     show,
     setShow,
     deposit,
-    withdrawal
+    withdrawal,
+    showPopupModal
   } = props;
   const [inputBox, setInputBox] = (0, _react.useState)("0");
+  const [toastshow, setToastShow] = (0, _react.useState)("false");
 
   const handleClose = () => setShow(false);
 
@@ -69507,7 +69555,7 @@ function CModal(props) {
     console.log(inputBox);
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "dark-modal"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
     show: show,
@@ -69524,21 +69572,26 @@ function CModal(props) {
     onChange: evt => setInputBox(evt.target.value),
     placeholder: "value to deposit",
     "aria-label": "",
-    "aria-describedby": "basic-addon1"
+    "aria-describedby": "basic-addon1",
+    type: "number"
   }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Footer, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "bg-white text-purple",
     variant: "secondary",
-    onClick: _ => deposit(inputBox)
+    onClick: _ => inputBox > 0.1 ? deposit(inputBox) : showPopupModal('Error !', 'Min Deposit are 0.11')
   }, "Deposit"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "bg-purple text-white",
     variant: "primary",
     onClick: _ => withdrawal()
-  }, "Withdraw my balance"))));
+  }, "Withdraw my balance"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "bg-dark text-white",
+    variant: "primary",
+    onClick: _ => (0, _utils.logout)()
+  }, "logout")))));
 }
 
 var _default = CModal;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../styles/modal.scss":"styles/modal.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","near-api-js":"../node_modules/near-api-js/lib/browser-index.js"}],"components/PopupModal.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../styles/modal.scss":"styles/modal.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","near-api-js":"../node_modules/near-api-js/lib/browser-index.js","../utils.js":"utils.js"}],"components/PopupModal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -71871,7 +71924,8 @@ const Home = () => {
     setChoice: setChoice,
     value: value,
     setValue: setValue,
-    flip: flip
+    flip: flip,
+    showPopupModal: showPopupModal
   }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: `home_block ${status != _constants.FLIP_NONE ? "home_active" : ''}`
   }, /*#__PURE__*/_react.default.createElement(_FlipBoard.default, {
@@ -71896,6 +71950,7 @@ const Home = () => {
     title: errTitle
   }), /*#__PURE__*/_react.default.createElement(_CModal.default, {
     show: showDeposit,
+    showPopupModal: showPopupModal,
     setShow: setshowDeposit,
     deposit: deposit,
     withdrawal: withdrawal,
@@ -71936,7 +71991,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./..\\assets\\background.jpg":[["background.73f2e897.jpg","assets/background.jpg"],"assets/background.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./..\\assets\\background-min.jpg":[["background-min.42250766.jpg","assets/background-min.jpg"],"assets/background-min.jpg"],"./..\\assets\\background-2-min.jpg":[["background-2-min.b80e632f.jpg","assets/background-2-min.jpg"],"assets/background-2-min.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -71984,7 +72039,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50234" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55471" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
