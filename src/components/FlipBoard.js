@@ -9,22 +9,25 @@ import { FLIP_GOING, FLIP_WON, FLIP_LOST, FLIP_NONE, FLIP_DOUBLE, HEAD, TAIL } f
 
 const FlipBoard = (props) => {
 
-  const { status, choice, value, setStatus } = props;
+  const { cookies, streak, status, choice, value, setStatus } = props;
 
   const getText = () => {
     let head = '';
     let desc = '';
     let wonValue;
+    let expires = new Date()
     if(status == FLIP_GOING) {
       head = 'Flipping ' + value + ' Ⓝ';
       desc = 'You Choose ' + (choice ? 'Heads' : 'Tails');
     } else if(status === FLIP_WON) {
+      cookies.set('win_streak', streak, { path: '/', expires});
       wonValue = (value * (0.955) * 2).toFixed(2).toString();
       head = 'You Won ' + wonValue + ' Ⓝ';
-      desc = 'Current Streak: ' + 1;
+      desc = 'Current Streak: ' + streak;
     } else if(status === FLIP_LOST) {
+      cookies.set('win_streak', streak, { path: '/', expires});
       head = 'You Lost ' + value.toString() + ' Ⓝ';
-      desc = 'Current Streak: ' + 0;
+      desc = 'Current Streak: ' + streak;
     } else {
       head = '';
       desc = '';

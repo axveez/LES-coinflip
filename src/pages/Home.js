@@ -1,7 +1,7 @@
 import { utils } from "near-api-js";
 import regeneratorRuntime from "regenerator-runtime";
-
 import React, { useState, useEffect } from 'react';
+import Cookies from 'universal-cookie';
 import ReactDOM from 'react-dom';
 import CoinSelect from '../components/CoinSelect';
 import Footer from '../components/Footer';
@@ -24,8 +24,11 @@ import reactDom from "react-dom";
 
 const Home = () => {
 
+  const cookies = new Cookies();
+
   const [status, setStatus] = useState(FLIP_NONE);
   const [choice, setChoice] = useState(HEAD);
+  const [streak, setStreak] = useState(Number(cookies.get('win_streak')) || 0 );
   // const [result, setResult] = useState(FLIP_NONE);
   const [value, setValue] = useState(0.1);
   const [txHistory, setTxHistory] = useState([]);
@@ -41,16 +44,18 @@ const Home = () => {
 
   const [shows, setShows] = useState({ about: false, faq: false, howTo: false, login: false, funding: false });
 
-
   useEffect(async () => {
     setLoading(true);
     await initContract();
-
     let newBalance = await window.contract.get_credits({ account_id: window.accountId }).catch(err => {
       console.log(err)
     });
     setBalance(newBalance)
     loadTxHistory();
+    setInterval(() => {
+      console.log("refresh");
+      loadTxHistory();
+    }, 5000);
     setLoading(false);
   }, []);
 
@@ -132,8 +137,10 @@ const Home = () => {
       .then(async res => {
         console.log(res);
         if (res === true) {
-          setStatus(FLIP_WON)
+          setStreak(streak+1);
+          setStatus(FLIP_WON);
         } else if (res === false) {
+          setStreak(streak+10);
           setStatus(FLIP_LOST);
         } else {
           //add error handler here show modal with error
@@ -152,7 +159,7 @@ const Home = () => {
   const loadTxHistory = async () => {
     await axios.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b&limit=10`)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         if (res && res.data && res.data.data && res.data.data.length) {
           setTxHistory(res.data.data);
         }
@@ -167,6 +174,7 @@ const Home = () => {
     setErrMsg(message);
     setShowPopup(true);
   };
+
 
   return (
     <ThemeProvider
@@ -194,6 +202,8 @@ const Home = () => {
             status={status}
             setStatus={setStatus}
             value={value}
+            streak={streak}
+            cookies={cookies}
           />
         </Row>
         <Row className="mt-5 mx-3" style={{ display: `${status === FLIP_NONE ? 'block' : 'none'}` }}>
