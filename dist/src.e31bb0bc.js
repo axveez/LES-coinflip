@@ -37566,6 +37566,7 @@ function isnan (val) {
 
 },{"base64-js":"../node_modules/base64-js/index.js","ieee754":"../node_modules/ieee754/index.js","isarray":"../node_modules/isarray/index.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/safe-buffer/index.js":[function(require,module,exports) {
 
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -37587,6 +37588,8 @@ if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow)
 function SafeBuffer (arg, encodingOrOffset, length) {
   return Buffer(arg, encodingOrOffset, length)
 }
+
+SafeBuffer.prototype = Object.create(Buffer.prototype)
 
 // Copy static methods from Buffer
 copyProps(Buffer, SafeBuffer)
@@ -39371,7 +39374,7 @@ function getTransactionLastResult(txResult) {
 }
 exports.getTransactionLastResult = getTransactionLastResult;
 
-},{"buffer":"../node_modules/buffer/index.js"}],"../node_modules/depd/lib/browser/index.js":[function(require,module,exports) {
+},{"buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js":[function(require,module,exports) {
 /*!
  * depd
  * Copyright(c) 2015 Douglas Christopher Wilson
@@ -39443,7 +39446,7 @@ function wrapproperty(obj, prop, message) {
     throw new TypeError('property must be configurable');
   }
 }
-},{}],"../node_modules/http-errors/node_modules/depd/lib/browser/index.js":[function(require,module,exports) {
+},{}],"../node_modules/depd/lib/browser/index.js":[function(require,module,exports) {
 /*!
  * depd
  * Copyright(c) 2015 Douglas Christopher Wilson
@@ -40043,7 +40046,7 @@ function populateConstructorExports(exports, codes, HttpError) {
 function toClassName(name) {
   return name.substr(-5) !== 'Error' ? name + 'Error' : name;
 }
-},{"depd":"../node_modules/http-errors/node_modules/depd/lib/browser/index.js","setprototypeof":"../node_modules/setprototypeof/index.js","statuses":"../node_modules/statuses/index.js","inherits":"../node_modules/inherits/inherits_browser.js","toidentifier":"../node_modules/toidentifier/index.js"}],"../node_modules/near-api-js/lib/utils/exponential-backoff.js":[function(require,module,exports) {
+},{"depd":"../node_modules/depd/lib/browser/index.js","setprototypeof":"../node_modules/setprototypeof/index.js","statuses":"../node_modules/statuses/index.js","inherits":"../node_modules/inherits/inherits_browser.js","toidentifier":"../node_modules/toidentifier/index.js"}],"../node_modules/near-api-js/lib/utils/exponential-backoff.js":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 async function exponentialBackoff(startWaitTime, retryNumber, waitBackoff, getResult) {
@@ -42360,7 +42363,7 @@ class JsonRpcProvider extends provider_1.Provider {
 }
 exports.JsonRpcProvider = JsonRpcProvider;
 
-},{"depd":"../node_modules/depd/lib/browser/index.js","./provider":"../node_modules/near-api-js/lib/providers/provider.js","../utils/web":"../node_modules/near-api-js/lib/utils/web.js","../utils/errors":"../node_modules/near-api-js/lib/utils/errors.js","borsh":"../node_modules/borsh/lib/index.js","../utils/exponential-backoff":"../node_modules/near-api-js/lib/utils/exponential-backoff.js","../utils/rpc_errors":"../node_modules/near-api-js/lib/utils/rpc_errors.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/providers/index.js":[function(require,module,exports) {
+},{"depd":"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js","./provider":"../node_modules/near-api-js/lib/providers/provider.js","../utils/web":"../node_modules/near-api-js/lib/utils/web.js","../utils/errors":"../node_modules/near-api-js/lib/utils/errors.js","borsh":"../node_modules/borsh/lib/index.js","../utils/exponential-backoff":"../node_modules/near-api-js/lib/utils/exponential-backoff.js","../utils/rpc_errors":"../node_modules/near-api-js/lib/utils/rpc_errors.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/providers/index.js":[function(require,module,exports) {
 "use strict";
 /** @hidden @module */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -44158,7 +44161,7 @@ class Account {
 }
 
 exports.Account = Account;
-},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/depd/lib/browser/index.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./providers":"../node_modules/near-api-js/lib/providers/index.js","borsh":"../node_modules/borsh/lib/index.js","./utils/key_pair":"../node_modules/near-api-js/lib/utils/key_pair.js","./utils/errors":"../node_modules/near-api-js/lib/utils/errors.js","./utils/rpc_errors":"../node_modules/near-api-js/lib/utils/rpc_errors.js","./constants":"../node_modules/near-api-js/lib/constants.js","./utils/exponential-backoff":"../node_modules/near-api-js/lib/utils/exponential-backoff.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/account_multisig.js":[function(require,module,exports) {
+},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./providers":"../node_modules/near-api-js/lib/providers/index.js","borsh":"../node_modules/borsh/lib/index.js","./utils/key_pair":"../node_modules/near-api-js/lib/utils/key_pair.js","./utils/errors":"../node_modules/near-api-js/lib/utils/errors.js","./utils/rpc_errors":"../node_modules/near-api-js/lib/utils/rpc_errors.js","./constants":"../node_modules/near-api-js/lib/constants.js","./utils/exponential-backoff":"../node_modules/near-api-js/lib/utils/exponential-backoff.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/account_multisig.js":[function(require,module,exports) {
 var Buffer = require("buffer").Buffer;
 'use strict';
 var __importDefault = (this && this.__importDefault) || function (mod) {
@@ -44475,7 +44478,7 @@ const convertActions = (actions, accountId, receiverId) => actions.map((a) => {
     return action;
 });
 
-},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/depd/lib/browser/index.js","./account":"../node_modules/near-api-js/lib/account.js","./utils/format":"../node_modules/near-api-js/lib/utils/format.js","./utils/key_pair":"../node_modules/near-api-js/lib/utils/key_pair.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./utils/web":"../node_modules/near-api-js/lib/utils/web.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/account_creator.js":[function(require,module,exports) {
+},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js","./account":"../node_modules/near-api-js/lib/account.js","./utils/format":"../node_modules/near-api-js/lib/utils/format.js","./utils/key_pair":"../node_modules/near-api-js/lib/utils/key_pair.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./utils/web":"../node_modules/near-api-js/lib/utils/web.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/account_creator.js":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UrlAccountCreator = exports.LocalAccountCreator = exports.AccountCreator = void 0;
@@ -44789,7 +44792,7 @@ function validateBNLike(argMap) {
     }
 }
 
-},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/depd/lib/browser/index.js","./providers":"../node_modules/near-api-js/lib/providers/index.js","./utils/errors":"../node_modules/near-api-js/lib/utils/errors.js"}],"../node_modules/near-api-js/lib/near.js":[function(require,module,exports) {
+},{"bn.js":"../node_modules/bn.js/lib/bn.js","depd":"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js","./providers":"../node_modules/near-api-js/lib/providers/index.js","./utils/errors":"../node_modules/near-api-js/lib/utils/errors.js"}],"../node_modules/near-api-js/lib/near.js":[function(require,module,exports) {
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -45203,7 +45206,7 @@ class ConnectedWalletAccount extends account_1.Account {
 }
 exports.ConnectedWalletAccount = ConnectedWalletAccount;
 
-},{"depd":"../node_modules/depd/lib/browser/index.js","./account":"../node_modules/near-api-js/lib/account.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./utils":"../node_modules/near-api-js/lib/utils/index.js","borsh":"../node_modules/borsh/lib/index.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/common-index.js":[function(require,module,exports) {
+},{"depd":"../node_modules/near-api-js/node_modules/depd/lib/browser/index.js","./account":"../node_modules/near-api-js/lib/account.js","./transaction":"../node_modules/near-api-js/lib/transaction.js","./utils":"../node_modules/near-api-js/lib/utils/index.js","borsh":"../node_modules/borsh/lib/index.js","buffer":"../node_modules/buffer/index.js"}],"../node_modules/near-api-js/lib/common-index.js":[function(require,module,exports) {
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -46771,7 +46774,435 @@ try {
   }
 }
 
-},{}],"../node_modules/classnames/index.js":[function(require,module,exports) {
+},{}],"../node_modules/cookie/index.js":[function(require,module,exports) {
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+'use strict';
+/**
+ * Module exports.
+ * @public
+ */
+
+exports.parse = parse;
+exports.serialize = serialize;
+/**
+ * Module variables.
+ * @private
+ */
+
+var decode = decodeURIComponent;
+var encode = encodeURIComponent;
+/**
+ * RegExp to match field-content in RFC 7230 sec 3.2
+ *
+ * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+ * field-vchar   = VCHAR / obs-text
+ * obs-text      = %x80-FF
+ */
+
+var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+/**
+ * Parse a cookie header.
+ *
+ * Parse the given cookie header string into an object
+ * The object has the various cookies as keys(names) => values
+ *
+ * @param {string} str
+ * @param {object} [options]
+ * @return {object}
+ * @public
+ */
+
+function parse(str, options) {
+  if (typeof str !== 'string') {
+    throw new TypeError('argument str must be a string');
+  }
+
+  var obj = {};
+  var opt = options || {};
+  var pairs = str.split(';');
+  var dec = opt.decode || decode;
+
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i];
+    var index = pair.indexOf('='); // skip things that don't look like key=value
+
+    if (index < 0) {
+      continue;
+    }
+
+    var key = pair.substring(0, index).trim(); // only assign once
+
+    if (undefined == obj[key]) {
+      var val = pair.substring(index + 1, pair.length).trim(); // quoted values
+
+      if (val[0] === '"') {
+        val = val.slice(1, -1);
+      }
+
+      obj[key] = tryDecode(val, dec);
+    }
+  }
+
+  return obj;
+}
+/**
+ * Serialize data into a cookie header.
+ *
+ * Serialize the a name value pair into a cookie string suitable for
+ * http headers. An optional options object specified cookie parameters.
+ *
+ * serialize('foo', 'bar', { httpOnly: true })
+ *   => "foo=bar; httpOnly"
+ *
+ * @param {string} name
+ * @param {string} val
+ * @param {object} [options]
+ * @return {string}
+ * @public
+ */
+
+
+function serialize(name, val, options) {
+  var opt = options || {};
+  var enc = opt.encode || encode;
+
+  if (typeof enc !== 'function') {
+    throw new TypeError('option encode is invalid');
+  }
+
+  if (!fieldContentRegExp.test(name)) {
+    throw new TypeError('argument name is invalid');
+  }
+
+  var value = enc(val);
+
+  if (value && !fieldContentRegExp.test(value)) {
+    throw new TypeError('argument val is invalid');
+  }
+
+  var str = name + '=' + value;
+
+  if (null != opt.maxAge) {
+    var maxAge = opt.maxAge - 0;
+
+    if (isNaN(maxAge) || !isFinite(maxAge)) {
+      throw new TypeError('option maxAge is invalid');
+    }
+
+    str += '; Max-Age=' + Math.floor(maxAge);
+  }
+
+  if (opt.domain) {
+    if (!fieldContentRegExp.test(opt.domain)) {
+      throw new TypeError('option domain is invalid');
+    }
+
+    str += '; Domain=' + opt.domain;
+  }
+
+  if (opt.path) {
+    if (!fieldContentRegExp.test(opt.path)) {
+      throw new TypeError('option path is invalid');
+    }
+
+    str += '; Path=' + opt.path;
+  }
+
+  if (opt.expires) {
+    if (typeof opt.expires.toUTCString !== 'function') {
+      throw new TypeError('option expires is invalid');
+    }
+
+    str += '; Expires=' + opt.expires.toUTCString();
+  }
+
+  if (opt.httpOnly) {
+    str += '; HttpOnly';
+  }
+
+  if (opt.secure) {
+    str += '; Secure';
+  }
+
+  if (opt.sameSite) {
+    var sameSite = typeof opt.sameSite === 'string' ? opt.sameSite.toLowerCase() : opt.sameSite;
+
+    switch (sameSite) {
+      case true:
+        str += '; SameSite=Strict';
+        break;
+
+      case 'lax':
+        str += '; SameSite=Lax';
+        break;
+
+      case 'strict':
+        str += '; SameSite=Strict';
+        break;
+
+      case 'none':
+        str += '; SameSite=None';
+        break;
+
+      default:
+        throw new TypeError('option sameSite is invalid');
+    }
+  }
+
+  return str;
+}
+/**
+ * Try decoding a string using a decoding function.
+ *
+ * @param {string} str
+ * @param {function} decode
+ * @private
+ */
+
+
+function tryDecode(str, decode) {
+  try {
+    return decode(str);
+  } catch (e) {
+    return str;
+  }
+}
+},{}],"../node_modules/universal-cookie/es6/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cleanCookies = cleanCookies;
+exports.hasDocumentCookie = hasDocumentCookie;
+exports.isParsingCookie = isParsingCookie;
+exports.parseCookies = parseCookies;
+exports.readCookie = readCookie;
+
+var cookie = _interopRequireWildcard(require("cookie"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function hasDocumentCookie() {
+  // Can we get/set cookies on document.cookie?
+  return typeof document === 'object' && typeof document.cookie === 'string';
+}
+
+function cleanCookies() {
+  document.cookie.split(';').forEach(function (c) {
+    document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
+  });
+}
+
+function parseCookies(cookies, options) {
+  if (typeof cookies === 'string') {
+    return cookie.parse(cookies, options);
+  } else if (typeof cookies === 'object' && cookies !== null) {
+    return cookies;
+  } else {
+    return {};
+  }
+}
+
+function isParsingCookie(value, doNotParse) {
+  if (typeof doNotParse === 'undefined') {
+    // We guess if the cookie start with { or [, it has been serialized
+    doNotParse = !value || value[0] !== '{' && value[0] !== '[' && value[0] !== '"';
+  }
+
+  return !doNotParse;
+}
+
+function readCookie(value, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  var cleanValue = cleanupCookieValue(value);
+
+  if (isParsingCookie(cleanValue, options.doNotParse)) {
+    try {
+      return JSON.parse(cleanValue);
+    } catch (e) {// At least we tried
+    }
+  } // Ignore clean value if we failed the deserialization
+  // It is not relevant anymore to trim those values
+
+
+  return value;
+}
+
+function cleanupCookieValue(value) {
+  // express prepend j: before serializing a cookie
+  if (value && value[0] === 'j' && value[1] === ':') {
+    return value.substr(2);
+  }
+
+  return value;
+}
+},{"cookie":"../node_modules/cookie/index.js"}],"../node_modules/universal-cookie/es6/Cookies.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var cookie = _interopRequireWildcard(require("cookie"));
+
+var _utils = require("./utils");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var __assign = void 0 && (void 0).__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var Cookies =
+/** @class */
+function () {
+  function Cookies(cookies, options) {
+    var _this = this;
+
+    this.changeListeners = [];
+    this.HAS_DOCUMENT_COOKIE = false;
+    this.cookies = (0, _utils.parseCookies)(cookies, options);
+    new Promise(function () {
+      _this.HAS_DOCUMENT_COOKIE = (0, _utils.hasDocumentCookie)();
+    }).catch(function () {});
+  }
+
+  Cookies.prototype._updateBrowserValues = function (parseOptions) {
+    if (!this.HAS_DOCUMENT_COOKIE) {
+      return;
+    }
+
+    this.cookies = cookie.parse(document.cookie, parseOptions);
+  };
+
+  Cookies.prototype._emitChange = function (params) {
+    for (var i = 0; i < this.changeListeners.length; ++i) {
+      this.changeListeners[i](params);
+    }
+  };
+
+  Cookies.prototype.get = function (name, options, parseOptions) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    this._updateBrowserValues(parseOptions);
+
+    return (0, _utils.readCookie)(this.cookies[name], options);
+  };
+
+  Cookies.prototype.getAll = function (options, parseOptions) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    this._updateBrowserValues(parseOptions);
+
+    var result = {};
+
+    for (var name_1 in this.cookies) {
+      result[name_1] = (0, _utils.readCookie)(this.cookies[name_1], options);
+    }
+
+    return result;
+  };
+
+  Cookies.prototype.set = function (name, value, options) {
+    var _a;
+
+    if (typeof value === 'object') {
+      value = JSON.stringify(value);
+    }
+
+    this.cookies = __assign(__assign({}, this.cookies), (_a = {}, _a[name] = value, _a));
+
+    if (this.HAS_DOCUMENT_COOKIE) {
+      document.cookie = cookie.serialize(name, value, options);
+    }
+
+    this._emitChange({
+      name: name,
+      value: value,
+      options: options
+    });
+  };
+
+  Cookies.prototype.remove = function (name, options) {
+    var finalOptions = options = __assign(__assign({}, options), {
+      expires: new Date(1970, 1, 1, 0, 0, 1),
+      maxAge: 0
+    });
+
+    this.cookies = __assign({}, this.cookies);
+    delete this.cookies[name];
+
+    if (this.HAS_DOCUMENT_COOKIE) {
+      document.cookie = cookie.serialize(name, '', finalOptions);
+    }
+
+    this._emitChange({
+      name: name,
+      value: undefined,
+      options: options
+    });
+  };
+
+  Cookies.prototype.addChangeListener = function (callback) {
+    this.changeListeners.push(callback);
+  };
+
+  Cookies.prototype.removeChangeListener = function (callback) {
+    var idx = this.changeListeners.indexOf(callback);
+
+    if (idx >= 0) {
+      this.changeListeners.splice(idx, 1);
+    }
+  };
+
+  return Cookies;
+}();
+
+var _default = Cookies;
+exports.default = _default;
+},{"cookie":"../node_modules/cookie/index.js","./utils":"../node_modules/universal-cookie/es6/utils.js"}],"../node_modules/universal-cookie/es6/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Cookies = _interopRequireDefault(require("./Cookies"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _Cookies.default;
+exports.default = _default;
+},{"./Cookies":"../node_modules/universal-cookie/es6/Cookies.js"}],"../node_modules/classnames/index.js":[function(require,module,exports) {
 var define;
 /*!
   Copyright (c) 2018 Jed Watson.
@@ -61510,6 +61941,8 @@ const Modal = /*#__PURE__*/React.forwardRef(({
   children,
   dialogAs: Dialog,
   'aria-labelledby': ariaLabelledby,
+  'aria-describedby': ariaDescribedby,
+  'aria-label': ariaLabel,
 
   /* BaseModal props */
   show,
@@ -61631,7 +62064,6 @@ const Modal = /*#__PURE__*/React.forwardRef(({
 
   const handleEnter = (node, isAppearing) => {
     if (node) {
-      node.style.display = 'block';
       updateDialogStyle(node);
     }
 
@@ -61662,11 +62094,10 @@ const Modal = /*#__PURE__*/React.forwardRef(({
   }), [animation, backdropClassName, bsPrefix]);
   const baseModalStyle = { ...style,
     ...modalStyle
-  }; // Sets `display` always block when `animation` is false
+  }; // If `display` is not set to block, autoFocus inside the modal fails
+  // https://github.com/react-bootstrap/react-bootstrap/issues/5102
 
-  if (!animation) {
-    baseModalStyle.display = 'block';
-  }
+  baseModalStyle.display = 'block';
 
   const renderDialog = dialogProps => /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     role: "dialog",
@@ -61675,7 +62106,9 @@ const Modal = /*#__PURE__*/React.forwardRef(({
     className: (0, _classnames.default)(className, bsPrefix, animateStaticModal && `${bsPrefix}-static`),
     onClick: backdrop ? handleClick : undefined,
     onMouseUp: handleMouseUp,
+    "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledby,
+    "aria-describedby": ariaDescribedby,
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Dialog, { ...props,
       onMouseDown: handleDialogMouseDown,
       className: dialogClassName,
@@ -64210,7 +64643,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const _excluded = ["active", "eventKey", "mountOnEnter", "transition", "unmountOnExit", "role"],
+const _excluded = ["active", "eventKey", "mountOnEnter", "transition", "unmountOnExit", "role", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited"],
       _excluded2 = ["activeKey", "getControlledId", "getControllerId"],
       _excluded3 = ["as"];
 
@@ -64236,7 +64669,13 @@ function useTabPanel(_ref) {
     mountOnEnter,
     transition,
     unmountOnExit,
-    role = 'tabpanel'
+    role = 'tabpanel',
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited
   } = _ref,
       props = _objectWithoutPropertiesLoose(_ref, _excluded);
 
@@ -64248,7 +64687,13 @@ function useTabPanel(_ref) {
     isActive: active,
     mountOnEnter,
     transition,
-    unmountOnExit
+    unmountOnExit,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited
   }];
 
   const {
@@ -64268,7 +64713,13 @@ function useTabPanel(_ref) {
     isActive: active == null && key != null ? (0, _SelectableContext.makeEventKey)(activeKey) === key : active,
     transition: transition || rest.transition,
     mountOnEnter: mountOnEnter != null ? mountOnEnter : rest.mountOnEnter,
-    unmountOnExit: unmountOnExit != null ? unmountOnExit : rest.unmountOnExit
+    unmountOnExit: unmountOnExit != null ? unmountOnExit : rest.unmountOnExit,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited
   }];
 }
 
@@ -68449,7 +68900,7 @@ var Slider = /*#__PURE__*/React.forwardRef(function (props, ref) {
       }
 
       triggerChange(cloneNextValues);
-      onAfterChange === null || onAfterChange === void 0 ? void 0 : onAfterChange(cloneNextValues);
+      onAfterChange === null || onAfterChange === void 0 ? void 0 : onAfterChange(getTriggerValue(cloneNextValues));
     }
   }; // ============================ Click =============================
 
@@ -68751,10 +69202,10 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/tails-logo.png":[function(require,module,exports) {
-module.exports = "/tails-logo.081288ab.png";
-},{}],"assets/heads-logo.png":[function(require,module,exports) {
-module.exports = "/heads-logo.ceebf960.png";
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/tails-logo-min.png":[function(require,module,exports) {
+module.exports = "/tails-logo-min.cce961ee.png";
+},{}],"assets/heads-logo-min.png":[function(require,module,exports) {
+module.exports = "/heads-logo-min.3cc43a56.png";
 },{}],"constants.js":[function(require,module,exports) {
 "use strict";
 
@@ -68794,9 +69245,9 @@ require("rc-slider/assets/index.css");
 
 require("../styles/coin_select.scss");
 
-var _tailsLogo = _interopRequireDefault(require("../assets/tails-logo.png"));
+var _tailsLogoMin = _interopRequireDefault(require("../assets/tails-logo-min.png"));
 
-var _headsLogo = _interopRequireDefault(require("../assets/heads-logo.png"));
+var _headsLogoMin = _interopRequireDefault(require("../assets/heads-logo-min.png"));
 
 var _constants = require("../constants");
 
@@ -68807,19 +69258,24 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 const CoinSelect = props => {
-  const [flipValue, setFlipValue] = (0, _react.useState)(0.1);
   const {
     choice,
     setChoice,
     value,
     setValue,
-    flip
+    flip,
+    showPopupModal
   } = props;
   (0, _react.useEffect)(() => {}, [choice]);
+
+  const underValue = _ => {
+    showPopupModal('Error !', 'Min Flip are 0.1');
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "coin_select block"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-    src: _headsLogo.default,
+    src: _headsLogoMin.default,
     style: {
       display: `${choice ? 'block' : 'none'}`
     },
@@ -68827,7 +69283,7 @@ const CoinSelect = props => {
     height: 438,
     className: "coin_select_img"
   }), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-    src: _tailsLogo.default,
+    src: _tailsLogoMin.default,
     style: {
       display: `${!choice ? 'block' : 'none'}`
     },
@@ -68858,21 +69314,43 @@ const CoinSelect = props => {
     onChange: nextValue => {
       setValue(nextValue);
     },
-    min: 0,
+    min: 0.1,
     max: 5,
     defaultValue: 0.1,
     step: 0.1
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
+    direction: "horizontal",
+    className: "py-3",
+    style: {
+      justifyContent: "center"
+    },
+    gap: 3
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "bold-font",
-    onClick: flip
+    onClick: () => setValue(1)
+  }, "1 \u24C3")), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: () => setValue(2)
+  }, "2 \u24C3")), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: () => setValue(5)
+  }, "5 \u24C3"))), /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn full-width btn-dark-bg coin_select_flip_btn bold-font"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "bold-font",
+    onClick: value >= 0.1 ? flip : underValue
   }, "Flip ", value, " \u24C3")));
 };
 
 var _default = CoinSelect;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","rc-slider":"../node_modules/rc-slider/es/index.js","rc-slider/assets/index.css":"../node_modules/rc-slider/assets/index.css","../styles/coin_select.scss":"styles/coin_select.scss","../assets/tails-logo.png":"assets/tails-logo.png","../assets/heads-logo.png":"assets/heads-logo.png","../constants":"constants.js"}],"styles/footer.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","rc-slider":"../node_modules/rc-slider/es/index.js","rc-slider/assets/index.css":"../node_modules/rc-slider/assets/index.css","../styles/coin_select.scss":"styles/coin_select.scss","../assets/tails-logo-min.png":"assets/tails-logo-min.png","../assets/heads-logo-min.png":"assets/heads-logo-min.png","../constants":"constants.js"}],"styles/footer.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -69002,7 +69480,7 @@ function getConfig(env) {
       return {
         networkId: 'local',
         nodeUrl: 'http://localhost:3030',
-        keyPath: `${"C:\\Users\\Joao"}/.near/validator_key.json`,
+        keyPath: `${"C:\\Users\\Akpiiz"}/.near/validator_key.json`,
         walletUrl: 'http://localhost:4000/wallet',
         contractName: CONTRACT_NAME
       };
@@ -69111,10 +69589,15 @@ const Header = props => {
       onClick: () => (0, _utils.login)()
     }, "Connect Wallet");
   } else {
-    connectionButton = /*#__PURE__*/_react.default.createElement("button", {
-      className: "bold-font btn-transparent header_connect_btn",
+    connectionButton = /*#__PURE__*/_react.default.createElement("div", {
+      className: "d-flex"
+    }, /*#__PURE__*/_react.default.createElement("button", {
+      className: "bold-font px-5 btn-transparent btn-header",
       onClick: () => props.setshowDeposit(true)
-    }, "\u24C3 ", props.balanceProps);
+    }, "\u24C3 ", props.balanceProps), /*#__PURE__*/_react.default.createElement("button", {
+      className: "bold-font btn-transparent btn-header",
+      onClick: () => (0, _utils.logout)()
+    }, "Logout"));
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -69125,10 +69608,10 @@ const Header = props => {
     direction: "horizontal",
     className: "header_navbar header-mobile",
     gap: 3
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
     src: _kangarooLogo.default,
     className: "logo-header"
-  }), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
+  })), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
     direction: "horizontal",
     className: "pull-right",
     gap: 2
@@ -69172,6 +69655,10 @@ var _react = _interopRequireDefault(require("react"));
 var _reactBootstrap = require("react-bootstrap");
 
 var _realtime = _interopRequireDefault(require("../assets/realtime.png"));
+
+var _tailsLogoMin = _interopRequireDefault(require("../assets/tails-logo-min.png"));
+
+var _headsLogoMin = _interopRequireDefault(require("../assets/heads-logo-min.png"));
 
 require("../styles/recent_flips.scss");
 
@@ -69223,7 +69710,7 @@ const RecentFlips = props => {
 
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
     md: 8,
-    className: "recent_flips"
+    className: "recent_flips text-center"
   }, /*#__PURE__*/_react.default.createElement("h2", {
     className: "bold-font"
   }, "Recent Flips"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Stack, {
@@ -69235,15 +69722,23 @@ const RecentFlips = props => {
       gap: 2,
       key: key
     }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Image, {
-      src: _realtime.default
-    }), /*#__PURE__*/_react.default.createElement("p", null, item.signer_id + ` flipped ` + convertBet(item.bet_type) + ` betting ` + nearConversion(item.bet_size) + ' Ⓝ and ' + convertWin(item.result)), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
-  })));
+      src: item.bet_type ? _realtime.default : _realtime.default,
+      width: "37px"
+    }), /*#__PURE__*/_react.default.createElement("p", null, `${item.signer_id} flipped ${convertBet(item.bet_type)} betting ${nearConversion(item.bet_size)} Ⓝ and ${convertWin(item.result)}`), /*#__PURE__*/_react.default.createElement("p", null, getTime(item.timestamp)));
+  })), /*#__PURE__*/_react.default.createElement("small", null, "powered by ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://havendao.community/",
+    target: "_blank"
+  }, "Haven")));
 };
 
 var _default = RecentFlips;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/realtime.png":"assets/realtime.png","../styles/recent_flips.scss":"styles/recent_flips.scss"}],"assets/kangaflip.gif":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","../assets/realtime.png":"assets/realtime.png","../assets/tails-logo-min.png":"assets/tails-logo-min.png","../assets/heads-logo-min.png":"assets/heads-logo-min.png","../styles/recent_flips.scss":"styles/recent_flips.scss"}],"assets/kangaflip.gif":[function(require,module,exports) {
 module.exports = "/kangaflip.aa090ae0.gif";
+},{}],"assets/heads-logo.png":[function(require,module,exports) {
+module.exports = "/heads-logo.ceebf960.png";
+},{}],"assets/tails-logo.png":[function(require,module,exports) {
+module.exports = "/tails-logo.081288ab.png";
 },{}],"components/FlipBoard.js":[function(require,module,exports) {
 "use strict";
 
@@ -69272,6 +69767,8 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 const FlipBoard = props => {
   const {
+    cookies,
+    streak,
     status,
     choice,
     value,
@@ -69282,17 +69779,26 @@ const FlipBoard = props => {
     let head = '';
     let desc = '';
     let wonValue;
+    let expires = new Date();
 
     if (status == _constants.FLIP_GOING) {
       head = 'Flipping ' + value + ' Ⓝ';
       desc = 'You Choose ' + (choice ? 'Heads' : 'Tails');
     } else if (status === _constants.FLIP_WON) {
+      cookies.set('win_streak', streak, {
+        path: '/',
+        expires
+      });
       wonValue = (value * 0.955 * 2).toFixed(2).toString();
       head = 'You Won ' + wonValue + ' Ⓝ';
-      desc = 'Current Streak: ' + 1;
+      desc = 'Current Streak: ' + streak;
     } else if (status === _constants.FLIP_LOST) {
+      cookies.set('win_streak', streak, {
+        path: '/',
+        expires
+      });
       head = 'You Lost ' + value.toString() + ' Ⓝ';
-      desc = 'Current Streak: ' + 0;
+      desc = 'Current Streak: ' + streak;
     } else {
       head = '';
       desc = '';
@@ -69486,6 +69992,8 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _nearApiJs = _interopRequireDefault(require("near-api-js"));
 
+var _utils = require("../utils.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -69497,9 +70005,11 @@ function CModal(props) {
     show,
     setShow,
     deposit,
-    withdrawal
+    withdrawal,
+    showPopupModal
   } = props;
   const [inputBox, setInputBox] = (0, _react.useState)("0");
+  const [toastshow, setToastShow] = (0, _react.useState)("false");
 
   const handleClose = () => setShow(false);
 
@@ -69507,7 +70017,7 @@ function CModal(props) {
     console.log(inputBox);
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "dark-modal"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal, {
     show: show,
@@ -69524,21 +70034,26 @@ function CModal(props) {
     onChange: evt => setInputBox(evt.target.value),
     placeholder: "value to deposit",
     "aria-label": "",
-    "aria-describedby": "basic-addon1"
+    "aria-describedby": "basic-addon1",
+    type: "number"
   }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Modal.Footer, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "bg-white text-purple",
     variant: "secondary",
-    onClick: _ => deposit(inputBox)
+    onClick: _ => inputBox > 0.1 ? deposit(inputBox) : showPopupModal('Error !', 'Min Deposit are 0.11')
   }, "Deposit"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     className: "bg-purple text-white",
     variant: "primary",
     onClick: _ => withdrawal()
-  }, "Withdraw my balance"))));
+  }, "Withdraw my balance"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+    className: "bg-dark text-white",
+    variant: "primary",
+    onClick: _ => (0, _utils.logout)()
+  }, "logout")))));
 }
 
 var _default = CModal;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../styles/modal.scss":"styles/modal.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","near-api-js":"../node_modules/near-api-js/lib/browser-index.js"}],"components/PopupModal.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../styles/modal.scss":"styles/modal.scss","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","near-api-js":"../node_modules/near-api-js/lib/browser-index.js","../utils.js":"utils.js"}],"components/PopupModal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -71667,6 +72182,8 @@ var _regeneratorRuntime = _interopRequireDefault(require("regenerator-runtime"))
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _universalCookie = _interopRequireDefault(require("universal-cookie"));
+
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _CoinSelect = _interopRequireDefault(require("../components/CoinSelect"));
@@ -71706,8 +72223,10 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Home = () => {
+  const cookies = new _universalCookie.default();
   const [status, setStatus] = (0, _react.useState)(_constants.FLIP_NONE);
-  const [choice, setChoice] = (0, _react.useState)(_constants.HEAD); // const [result, setResult] = useState(FLIP_NONE);
+  const [choice, setChoice] = (0, _react.useState)(_constants.HEAD);
+  const [streak, setStreak] = (0, _react.useState)(Number(cookies.get('win_streak')) || 0); // const [result, setResult] = useState(FLIP_NONE);
 
   const [value, setValue] = (0, _react.useState)(0.1);
   const [txHistory, setTxHistory] = (0, _react.useState)([]);
@@ -71735,6 +72254,10 @@ const Home = () => {
     });
     setBalance(newBalance);
     loadTxHistory();
+    setInterval(() => {
+      console.log("refresh");
+      loadTxHistory();
+    }, 5000);
     setLoading(false);
   }, []);
 
@@ -71812,8 +72335,10 @@ const Home = () => {
       console.log(res);
 
       if (res === true) {
+        setStreak(streak + 1);
         setStatus(_constants.FLIP_WON);
       } else if (res === false) {
+        setStreak(streak + 10);
         setStatus(_constants.FLIP_LOST);
       } else {
         //add error handler here show modal with error
@@ -71833,8 +72358,7 @@ const Home = () => {
 
   const loadTxHistory = async () => {
     await _axios.default.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b&limit=10`).then(res => {
-      console.log(res);
-
+      // console.log(res);
       if (res && res.data && res.data.data && res.data.data.length) {
         setTxHistory(res.data.data);
       }
@@ -71871,14 +72395,17 @@ const Home = () => {
     setChoice: setChoice,
     value: value,
     setValue: setValue,
-    flip: flip
+    flip: flip,
+    showPopupModal: showPopupModal
   }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: `home_block ${status != _constants.FLIP_NONE ? "home_active" : ''}`
   }, /*#__PURE__*/_react.default.createElement(_FlipBoard.default, {
     choice: choice,
     status: status,
     setStatus: setStatus,
-    value: value
+    value: value,
+    streak: streak,
+    cookies: cookies
   })), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: "mt-5 mx-3",
     style: {
@@ -71896,6 +72423,7 @@ const Home = () => {
     title: errTitle
   }), /*#__PURE__*/_react.default.createElement(_CModal.default, {
     show: showDeposit,
+    showPopupModal: showPopupModal,
     setShow: setshowDeposit,
     deposit: deposit,
     withdrawal: withdrawal,
@@ -71925,7 +72453,7 @@ const Home = () => {
 
 var _default = Home;
 exports.default = _default;
-},{"near-api-js":"../node_modules/near-api-js/lib/browser-index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../components/CoinSelect":"components/CoinSelect.js","../components/Footer":"components/Footer.js","../components/Header":"components/Header.js","../components/RecentFlips":"components/RecentFlips.js","../components/FlipBoard":"components/FlipBoard.js","../components/CModal":"components/CModal.js","../components/PopupModal":"components/PopupModal.js","../components/Spinner":"components/Spinner.js","../components/About":"components/About.js","../components/Faq":"components/Faq.js","../components/HowTo":"components/HowTo.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","axios":"../node_modules/axios/index.js","../utils.js":"utils.js","../constants":"constants.js"}],"../node_modules/bootstrap/dist/css/bootstrap.min.css":[function(require,module,exports) {
+},{"near-api-js":"../node_modules/near-api-js/lib/browser-index.js","regenerator-runtime":"../node_modules/regenerator-runtime/runtime.js","react":"../node_modules/react/index.js","universal-cookie":"../node_modules/universal-cookie/es6/index.js","react-dom":"../node_modules/react-dom/index.js","../components/CoinSelect":"components/CoinSelect.js","../components/Footer":"components/Footer.js","../components/Header":"components/Header.js","../components/RecentFlips":"components/RecentFlips.js","../components/FlipBoard":"components/FlipBoard.js","../components/CModal":"components/CModal.js","../components/PopupModal":"components/PopupModal.js","../components/Spinner":"components/Spinner.js","../components/About":"components/About.js","../components/Faq":"components/Faq.js","../components/HowTo":"components/HowTo.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","axios":"../node_modules/axios/index.js","../utils.js":"utils.js","../constants":"constants.js"}],"../node_modules/bootstrap/dist/css/bootstrap.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -71936,7 +72464,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./..\\assets\\background.jpg":[["background.73f2e897.jpg","assets/background.jpg"],"assets/background.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","./..\\assets\\background-min.jpg":[["background-min.42250766.jpg","assets/background-min.jpg"],"assets/background-min.jpg"],"./..\\assets\\background-2-min.jpg":[["background-2-min.b80e632f.jpg","assets/background-2-min.jpg"],"assets/background-2-min.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -71984,7 +72512,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50234" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57904" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
