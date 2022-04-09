@@ -4,6 +4,7 @@ import { Image, Stack } from 'react-bootstrap';
 import KangarooLogo from '../assets/kangaroo-logo.png';
 import { login, logout } from '../utils.js';
 
+
 const Header = (props) => {
   
   let connectionButton;
@@ -23,6 +24,7 @@ const Header = (props) => {
           <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, about: true})}>Flip Responsibly</a>
           <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, howTo: true})}>How To Play</a>
           <a href="/#" onClick={()=>props.setShowsFunc({...props.showsProps, faq: true})}>FAQ</a>
+          <a href="/leaderboard">Leaderboard</a>
 
         </Stack>
         {connectionButton}
