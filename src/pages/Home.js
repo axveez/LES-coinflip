@@ -157,7 +157,7 @@ const Home = () => {
   };
 
   const loadTxHistory = async () => {
-    await axios.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b&limit=10`)
+    await axios.get(`https://dzflipapi.herokuapp.com/api/latest_transactions`)
       .then(res => {
         // console.log(res);
         if (res && res.data && res.data.data && res.data.data.length) {
