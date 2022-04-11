@@ -75770,7 +75770,7 @@ const Home = () => {
   };
 
   const loadTxHistory = async () => {
-    await _axios.default.get(`https://indexer.havendao.community/api/kcfhouse.near?api_key=d6fff89b7d6957cbc50b6f9b&limit=10`).then(res => {
+    await _axios.default.get(`https://dzflipapi.herokuapp.com/api/latest_transactions`).then(res => {
       // console.log(res);
       if (res && res.data && res.data.data && res.data.data.length) {
         setTxHistory(res.data.data);
@@ -96198,7 +96198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57639" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50967" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
