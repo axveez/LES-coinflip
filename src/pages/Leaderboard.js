@@ -123,7 +123,7 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
-            <h3 className="bold-font">KANGAROO FLIP COIN LEADERBOARD</h3>
+            <h3 className="bold-font">KANGAROO COIN FLIP LEADERBOARD</h3>
             <br/>
             <a href="/" className="btn btn-leaderboard active">Play Flip Coin</a>
             <br/>
