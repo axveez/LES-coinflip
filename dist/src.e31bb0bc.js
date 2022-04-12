@@ -93556,8 +93556,8 @@ const Home = () => {
     className: "bold-font"
   }, "KANGAROO COIN FLIP LEADERBOARD"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("a", {
     href: "/",
-    className: "btn btn-leaderboard active"
-  }, "Play Flip Coin"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null)), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn btn-lg bold-font btn-leaderboard active"
+  }, "FLIP NOW"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null)), /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12 col-lg-4 mt-3"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: `btn btn-leaderboard btn-sm mx-1 ${button1 == "all" ? "active" : ""}`,
@@ -96198,7 +96198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57759" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58866" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -125,7 +125,7 @@ const Home = () => {
           <div className="col-12 text-center">
             <h3 className="bold-font">KANGAROO COIN FLIP LEADERBOARD</h3>
             <br/>
-            <a href="/" className="btn btn-leaderboard active">Play Flip Coin</a>
+            <a href="/" className="btn btn-lg bold-font btn-leaderboard active">FLIP NOW</a>
             <br/>
             <br/>
           </div>
